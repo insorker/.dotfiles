@@ -77,7 +77,7 @@ git clone git@github.com:insorker/.dotfiles.git
 
 #### vim-plug安装插件
 
-##### coc.nvim 
+##### coc.nvim
 可以访问GitHub上的网站[coc.nvim](https://github.com/neoclide/coc.nvim)了解初步配置，这里也给出我的配置步骤
 
 1. 下载node.js
@@ -94,12 +94,34 @@ git clone git@github.com:insorker/.dotfiles.git
 3. 打开对应的后缀文件查看提示信息
    
    - java需要安装jdk
-   
-   - c/cpp文件需要安装clangd（我的设置，也可以不这样），使用`:CocCommand clangd.install`命令即可。
+   - c/cpp文件需要安装[clangd](https://clangd.llvm.org/installation.html#project-setup)（我的设置，也可以不这样），使用`:CocCommand clangd.install`命令即可。
      
      - 如果出现错误，可以参考https://github.com/clangd/coc-clangd/issues/61 
-     
      - 如果等待时间过长，可以参考[VIM插件安装 - 打造代码编写环境_Proprieter_sz的博客-CSDN博客](https://blog.csdn.net/Proprieter_sz/article/details/121557828)中**安装C++自动补全服务**部分的介绍
+
+##### bear
+
+clangd安装完成后还要注意设置`compile_commands.json`，不然遇到大的项目，你的文件将会一片飘红（详见官方说明）。
+
+个人推荐官网的推荐**bear**
+
+```shell
+sudo apt-get bear
+```
+
+使用也很简单，就是
+
+```shell
+bear -- <your-build-command>
+```
+
+##### ctags
+
+我只能说谁用谁知道，使用方式
+
+```shell
+ctags -R
+```
 
 ## gitconfig
 
