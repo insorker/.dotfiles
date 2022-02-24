@@ -140,7 +140,7 @@ zsh插件位于zsh/.zsh/plugin/
 为了保证插件为最新版本，请手动git clone到github上的仓库到zsh/.zsh/plugin/下，如：
 
 ```shell
-cd ~/.dotfiles/zsh/.zsh/plugin/
+cd ~/.dotfiles/zsh/.zsh/plugins/
 git clone git@github.com:zsh-users/zsh-syntax-highlighting.git
 ```
 
