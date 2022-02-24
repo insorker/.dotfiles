@@ -94,10 +94,27 @@ git clone git@github.com:insorker/.dotfiles.git
 3. 打开对应的后缀文件查看提示信息
    
    - java需要安装jdk
+   
    - c/cpp文件需要安装[clangd](https://clangd.llvm.org/installation.html#project-setup)（我的设置，也可以不这样），使用`:CocCommand clangd.install`命令即可。
      
      - 如果出现错误，可以参考https://github.com/clangd/coc-clangd/issues/61 
+     
      - 如果等待时间过长，可以参考[VIM插件安装 - 打造代码编写环境_Proprieter_sz的博客-CSDN博客](https://blog.csdn.net/Proprieter_sz/article/details/121557828)中**安装C++自动补全服务**部分的介绍
+     
+     - 最后我建议的方法是
+     
+       > 1. 打开clangd开源仓库[GitHub - clangd/clangd: clangd language server](https://github.com/clangd/clangd)在右边Releases处选择发行版本，下载最新版，或者wget，但太慢了
+       > 2. 创建如下文件夹并`cd ~/.config/coc/extensions/coc-clangd-data/install`
+       > 3. 把下载好的文件放到这个文件夹下
+       > 4. 用unzip命令解压压缩包`unzip clangd-linux-13.0.0.zip`
+       >
+       > 5. 跳转到`cd ~/.vim/`，编辑`coc-settings.json`，添加如下内容（根据版本修改）
+       >
+       > ```json
+       > {
+       > 	"clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/clangd_13.0.0/bin/clangd"
+       > }
+       > ```
 
 ##### bear
 
