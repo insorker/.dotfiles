@@ -146,6 +146,10 @@ ctags -R
 
 ## tmux
 
+```c
+tmux source-file ~/.tmux.conf
+```
+
 ## zsh
 
 ### .zsh
