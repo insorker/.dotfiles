@@ -146,9 +146,15 @@ git clone git@github.com:zsh-users/zsh-syntax-highlighting.git
 
 然后在zsh/.zshrc中添加启用即可，其他配置可以参考我的
 
-```
+```shell
 source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ```
+
+我目前使用的插件：
+
+- [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
+- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+- [powerlevel10k](https://github.com/romkatv/powerlevel10k)（必装，不然你要改我的.zshrc）
 
 ##### 关于p10k
 
