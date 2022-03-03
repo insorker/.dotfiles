@@ -31,6 +31,9 @@ set backspace=indent,eol,start
 " 允许在有未保存的修改时切换缓冲区
 set hidden
 
+" 显示上/下5行的内容
+set scrolloff=5
+
 " 开启相关内容
 filetype on
 filetype plugin on
@@ -64,6 +67,11 @@ nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 " 消除错误提示音与光标闪烁
 set noerrorbells visualbell t_vb=
 
+" 解锁按键
+map <C-a> <Nop>
+map <C-x> <Nop>
+nmap Q <Nop>
+
 " 更快捷自然的窗口操作
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -91,7 +99,9 @@ inoremap <Down>  <ESC>:echoe "Use j"<CR>
 " vim插件配置
 set tags=./tags,tags;$HOME
 
+"=================
 " vim-plug插件配置
+"=================
 call plug#begin('~/.vim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
