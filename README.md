@@ -39,6 +39,28 @@ git clone git@github.com:insorker/.dotfiles.git
 ./clear.sh
 ```
 
+## 好用的工具
+
+推荐在linux上安装的工具
+
+### ccache
+
+描述：加速gcc
+
+配置：参考man手册中的run modes
+
+### tldr
+
+描述：too long didn't read
+
+### ctags
+
+描述：配合vim
+
+### bear
+
+描述：配合vim clangd
+
 ## vim
 
 ### .vimrc
