@@ -2,7 +2,7 @@
 
 管理个人配置文件
 
-由于我用的是zsh作为shell脚本，bash用户请酌情修改
+由于我用的是**zsh**作为shell脚本，使用其他shell的用户请酌情修改
 
 ## 安装配置文件
 
@@ -28,6 +28,8 @@ git clone git@github.com:insorker/.dotfiles.git
 >
 > - 安装：对需要的文件夹，运行`stow -S xxx`
 > - 删除：`stow -D xxx`
+>
+> 如果出现报错，可能是由于$HOME下存在同名文件，且同名文件不是链接或文件夹，需要手动判断是否删除
 
 ```shell
 ./link.sh
@@ -45,21 +47,34 @@ git clone git@github.com:insorker/.dotfiles.git
 
 ### ccache
 
-描述：加速gcc
+*加速gcc*
 
-配置：参考man手册中的run modes
+参考man手册中的run modes进行配置
 
 ### tldr
 
-描述：too long didn't read
+*too long didn't read*
 
 ### ctags
 
-描述：配合vim
+*配合vim*
 
 ### bear
 
-描述：配合vim clangd
+*配合vim clangd*
+
+### [nvm](https://github.com/nvm-sh/nvm)
+
+*配置各种版本的nodejs和npm*
+
+> 在wsl，连接不上的话，建议手动开一下[梯子](https://zhuanlan.zhihu.com/p/451198301)
+
+下载[LTS version](https://github.com/nvm-sh/nvm#long-term-support)
+
+````shell
+nvm install --lts
+nvm use --ltsn
+````
 
 ## vim
 
@@ -103,8 +118,13 @@ git clone git@github.com:insorker/.dotfiles.git
 可以访问GitHub上的网站[coc.nvim](https://github.com/neoclide/coc.nvim)了解初步配置，这里也给出我的配置步骤
 
 1. 下载node.js
+    
+    > 更新了nodejs安装方式，推荐通过nvm安装（详见上文【好用的工具】）
+    >
+    > 如果不通过nvm安装，可以选择如下方式
+    
     https://github.com/nodesource/distributions/blob/master/README.md
-
+    
 2. 默认安装的插件是java、python、clangd和json，有其他需求可以修改 
    
    ```
