@@ -118,7 +118,7 @@ nvm use --ltsn
 可以访问GitHub上的网站[coc.nvim](https://github.com/neoclide/coc.nvim)了解初步配置，这里也给出我的配置步骤
 
 1. 下载node.js
-    
+   
     > 更新了nodejs安装方式，推荐通过nvm安装（详见上文【好用的工具】）
     >
     > 如果不通过nvm安装，可以选择如下方式
@@ -158,7 +158,7 @@ nvm use --ltsn
        > }
        > ```
 
-##### bear
+#### bear
 
 clangd安装完成后还要注意设置`compile_commands.json`，不然遇到大的项目，你的文件将会一片飘红（详见官方说明）。
 
@@ -174,7 +174,7 @@ sudo apt-get bear
 bear -- <your-build-command>
 ```
 
-##### ctags
+#### ctags
 
 我只能说谁用谁知道，使用方式
 
@@ -196,7 +196,7 @@ tmux source-file ~/.tmux.conf
 
 ### .zsh
 
-##### 插件安装
+#### 插件安装
 
 zsh插件位于zsh/.zsh/plugin/
 
@@ -219,6 +219,10 @@ source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 - [powerlevel10k](https://github.com/romkatv/powerlevel10k)（必装，不然你要改我的.zshrc）
 
-##### 关于p10k
+#### 关于p10k
 
 运行`p10k configure`修改我的配置
+
+#### .zshrc_profile
+
+这里面填写你自己本地的zshrc配置，比如一些export

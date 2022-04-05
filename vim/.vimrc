@@ -109,6 +109,8 @@ Plug 'ervandew/supertab'
 Plug 'morhetz/gruvbox'
 Plug 'scrooloose/nerdcommenter'
 Plug 'preservim/nerdtree'
+Plug 'gcmt/wildfire.vim'
+Plug 'tpope/vim-surround'
 "---> not necessary, since it works only if your code is indented with spaces
 "---> with tabs would not work
 " Plug 'Yggdroot/indentLine'

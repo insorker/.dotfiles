@@ -64,6 +64,10 @@ autoload -U colors && colors
 # 接受当前提示 
 bindkey '^t' autosuggest-accept
 
+# use vi-mode
+# it seems to forbid some original option
+# bindkey -v
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.zsh/.p10k.zsh ]] || source ~/.zsh/.p10k.zsh
 
@@ -72,3 +76,8 @@ export PATH=/usr/lib/ccache:$PATH
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# import .zsh_profile
+if [ -f $HOME/.zshrc_profile ]; then
+	source $HOME/.zshrc_profile
+fi
