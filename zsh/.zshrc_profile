@@ -1,2 +1,5 @@
 # NJU OS
 export AM_HOME=/home/insorker/study/os-workbench-2022/abstract-machine
+
+# WSL GUI
+export DISPLAY=:0.0
