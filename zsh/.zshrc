@@ -71,7 +71,11 @@ bindkey '^t' autosuggest-accept
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.zsh/.p10k.zsh ]] || source ~/.zsh/.p10k.zsh
 
+# add Path
 export PATH=/usr/lib/ccache:$PATH
+# go env
+export PATH=$PATH:/usr/local/go/bin
+export GOPROXY=https://goproxy.cn,direct
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
