@@ -111,6 +111,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'preservim/nerdtree'
 Plug 'gcmt/wildfire.vim'
 Plug 'tpope/vim-surround'
+Plug 'terryma/vim-multiple-cursors'
 "---> not necessary, since it works only if your code is indented with spaces
 "---> with tabs would not work
 " Plug 'Yggdroot/indentLine'
@@ -165,6 +166,19 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
+
+"===> [vim-multiple-cursors]
+let g:multi_cursor_use_default_mapping=0
+
+" Default mapping
+let g:multi_cursor_start_word_key      = 'mn'
+let g:multi_cursor_select_all_word_key = 'ma'
+let g:multi_cursor_start_key           = 'mgn'
+let g:multi_cursor_select_all_key      = 'mga'
+let g:multi_cursor_next_key            = '<C-n>'
+let g:multi_cursor_prev_key            = '<C-p>'
+let g:multi_cursor_skip_key            = 'm<C-x>'
+let g:multi_cursor_quit_key            = '<Esc>'
 
 ""===> [indentLine]
 "" 指定对齐线的尺寸

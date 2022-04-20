@@ -76,6 +76,42 @@ nvm install --lts
 nvm use --ltsn
 ````
 
+### [ripgrep](https://github.com/BurntSushi/ripgrep)
+
+*代替grep*
+
+### [fzf](https://github.com/junegunn/fzf)
+
+*命令行下的模糊搜索*
+
+⚠️ Key bindings (CTRL-T / CTRL-R / ALT-C) and fuzzy auto-completion may not be enabled by default.
+
+Refer to the package documentation for more information. (e.g. apt-cache show fzf)
+
+`CTRL-T` 查找目录下条目
+
+`CTRL-R` 查找历史命令
+
+---
+
+***未启用***
+
+### mosh
+
+*代替ssh*
+
+### jq
+
+*json文件处理及格式化显示*
+
+### yapf
+
+*Google开发的python代码格式规范化工具，支持pep8以及Google代码风格*
+
+### 其他
+
+[链接](https://www.zhihu.com/question/59227720/answer/163594782?utm_source=qq&utm_medium=social&utm_oi=691733779890319360)
+
 ## vim
 
 ### .vimrc
