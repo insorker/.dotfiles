@@ -48,9 +48,12 @@ nnoremap n nzz
 nnoremap N Nzz
 
 " 设置缩进
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+" set tabstop=4
+" set shiftwidth=4
+" set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set autoindent
 
 " 设置折叠
@@ -177,7 +180,7 @@ let g:multi_cursor_start_key           = 'mgn'
 let g:multi_cursor_select_all_key      = 'mga'
 let g:multi_cursor_next_key            = '<C-n>'
 let g:multi_cursor_prev_key            = '<C-p>'
-let g:multi_cursor_skip_key            = 'm<C-x>'
+let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
 
 ""===> [indentLine]
