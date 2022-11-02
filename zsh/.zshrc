@@ -51,7 +51,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
-# ==> 一些从bashrc抄过来的操作
+# <== 一些从bashrc抄过来的操作
 
 # 启用插件
 source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -71,21 +71,21 @@ bindkey '^t' autosuggest-accept
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.zsh/.p10k.zsh ]] || source ~/.zsh/.p10k.zsh
 
+# ==> Software
+# ccache
+export PATH=/usr/lib/ccache:$PATH
+
 # fzf
 export FZF_COMPLETION_TRIGGER='\'
 export FZF_TMUX_HEIGHT='80%'
 source /usr/share/doc/fzf/examples/key-bindings.zsh
 source /usr/share/doc/fzf/examples/completion.zsh
 
-# add Path
-export PATH=/usr/lib/ccache:$PATH
-# go env
-export PATH=$PATH:/usr/local/go/bin
-export GOPROXY=https://goproxy.cn,direct
-
+# nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# <== Software
 
 # import .zsh_profile
 if [ -f $HOME/.zshrc_profile ]; then
