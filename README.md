@@ -8,6 +8,33 @@
 | -------- | ----- | ----- |
 | insorker | Linux |  zsh  |
 
+## New System
+
+如果你是新安装的系统，需要换源和配置一下git
+
+### source
+
+使用[清华源 Ubuntu](https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/)
+
+```shell
+cp /etc/apt/sources.list /etc/apt/sources.list.bak
+sudo sed -i "s@http://.*archive.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
+sudo sed -i "s@http://.*security.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
+sudo apt update
+sudo apt upgrade
+```
+
+### git
+
+```shell
+git config --global user.name "username"
+git config --global user.email "email"
+ssh-keygen -t rsa -C "email"
+cat ~/.ssh/id_rsa.pub
+```
+
+然后该做什么就不多说了
+
 ## Basic Setup
 
 安装zsh
