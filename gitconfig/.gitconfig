@@ -1,7 +1,0 @@
-[user]
-	name = insorker
-	email = 2677331029@qq.com
-[core]
-	editor = vim
-[http]
-	sslverify = false

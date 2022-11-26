@@ -147,6 +147,30 @@ CTRL-T 查找目录下条目
 CTRL-R 查找历史命令
 ```
 
+### [fd](https://github.com/sharkdp/fd#installation)
+
+> alternative to find
+
+Make sure that $HOME/.local/bin is in your $PATH.
+
+```zsh
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ]; then
+  PATH="$HOME/.local/bin:$PATH"
+fi
+```
+
+```shell
+sudo apt install fd-find
+ln -s $(which fdfind) ~/.local/bin/fd
+```
+
+### [lazygit](https://github.com/jesseduffield/lazygit)
+
+> lazy git and cooperate with nvim.toggleterm
+
+快捷键详见[keybindings](https://github.com/jesseduffield/lazygit/blob/master/docs/keybindings/Keybindings_zh.md)，太多了以后整理
+
 ### 其他
 
 以下被推荐，但未被使用，本流程无需安装
