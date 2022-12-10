@@ -8,7 +8,7 @@
 | -------- | ----- | ----- |
 | insorker | Linux |  zsh  |
 
-## New System
+## Configure new system (optional)
 
 如果你是新安装的系统，需要换源和配置一下git
 
@@ -35,7 +35,7 @@ cat ~/.ssh/id_rsa.pub
 
 然后该做什么就不多说了
 
-## Basic Setup
+### zsh
 
 安装zsh
 
@@ -43,22 +43,24 @@ cat ~/.ssh/id_rsa.pub
 sudo apt install zsh
 ```
 
+## Basic setup
+
 安装stow
 
 ```shell
 sudo apt-get install stow
 ```
 
-git clone
+git clone 本项目
 
 ```shell
 cd ~
 git clone --depth=1 git@github.com:insorker/.dotfiles.git
 ```
 
-运行脚本安装配置，非zsh用户请修改shell解释器
+运行脚本安装配置
 
-> 注意，请确保家目录下不存在.dotfile中同名文件/文件夹/链接。如有冲突，请手动调整
+> 注意！！！请确保家目录下不存在.dotfile中同名文件/文件夹/链接。如有冲突，请手动调整
 >
 > e.g.
 > 
@@ -70,16 +72,46 @@ git clone --depth=1 git@github.com:insorker/.dotfiles.git
 
 ```shell
 cd .dotfile
-./link.sh
+./dotlink.sh
 ```
 
 删除配置【安装时无需操作】
 
 ```shell
-./clear.sh
+./dotclear.sh
 ```
 
-更多配置请查阅各个文件夹下的README
+更多配置请查阅各个文件夹下的README.md
+
+## Advance setup
+
+### dotlink.sh
+
+输入命令`./dotlink.sh -h`查看帮助
+
+### How to ignore files
+
+你可以在`.dotfiles`文件夹下创建`dotignore`文件，并在其中声明了当前文件夹下你所不需要的配置，如以下示例代码
+
+```
+cd ~/.dotfiles
+touch dotignore
+echo "vim" >> dotignore
+```
+
+同时，你也可以在 stow package （即`.dotfiles`下的子文件夹）中声明你不需要的配置。和上面不同的是，你需要使用 stow 的`.stow-local-ignore`文件，如以下示例代码
+
+```
+cd ~/.dotfiles/nvim
+touch .stow-local-ignore
+echo "README.md" >> .stow-local-ignore
+```
+
+> 在没有 .stow-local-ignore 的情况下，stow 会默认忽略一些文件如 README.md。新建 .stow-local-ignore 后，请按照需求将它们添加进配置中
+
+### How to define specific config
+
+在 stow package 中创建 dotlink.sh 文件。因为目前只是自用的，所以没搞得很简单易用，好在代码很短，你可以试着 RTFSC
 
 ## Software to Install
 
