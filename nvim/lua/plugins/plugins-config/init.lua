@@ -1,0 +1,16 @@
+path = 'plugins/plugins-config/'
+
+require(path..'sonokai')
+require(path..'nvim-treesitter')
+require(path..'nvim-tree')
+require(path..'nvim-web-devicons')
+require(path..'nvim-lspconfig')
+require(path..'bufferline')
+require(path..'lualine')
+require(path..'symbols-outline')
+require(path..'telescope')
+require(path..'toggleterm')
+require(path..'impatient')
+require(path..'dashboard')
+require(path..'vim-rooter')
+require(path..'Comment')

@@ -53,6 +53,11 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 # <== 一些从bashrc抄过来的操作
 
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ]; then
+  PATH="$HOME/.local/bin:$PATH"
+fi
+
 # 启用插件
 source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
