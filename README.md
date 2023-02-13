@@ -75,6 +75,13 @@ cd .dotfile
 ./dotlink.sh
 ```
 
+尝试运行但不安装，并显示详细信息
+
+```shell
+cd .dotfile
+./dotlink.sh -nv
+```
+
 删除配置【安装时无需操作】
 
 ```shell
@@ -148,11 +155,13 @@ bear -- <your-build-command>
 
 > 配置各种版本的nodejs和npm
 
-使用[LTS version](https://github.com/nvm-sh/nvm#long-term-support)，wsl连接不上的话，建议手动开一下[梯子](https://zhuanlan.zhihu.com/p/451198301)
+使用[LTS version](https://github.com/nvm-sh/nvm#long-term-support)，wsl连接不上的话，建议手动开一下[梯子](https://zhuanlan.zhihu.com/p/451198301)，不开梯子的话可以选择[换源淘宝源](https://www.zhihu.com/question/52918484?utm_id=0)
+
+当然也可能是[ curl 的问题](https://www.likecs.com/ask-1274765.html)，总之就是很逆天啦
 
 ```shell
 nvm install --lts
-nvm use --ltsn
+nvm use --lts
 ```
 
 ### [cz-cli](https://github.com/commitizen/cz-cli)
