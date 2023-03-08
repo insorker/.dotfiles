@@ -212,6 +212,10 @@ ln -s $(which fdfind) ~/.local/bin/fd
 
 快捷键详见[keybindings](https://github.com/jesseduffield/lazygit/blob/master/docs/keybindings/Keybindings_zh.md)，太多了以后整理
 
+### [Deno](https://deno.land/manual@v1.31.1/getting_started/installation#download-and-install)
+
+> 前端相关
+
 ### 其他
 
 以下被推荐，但未被使用，本流程无需安装

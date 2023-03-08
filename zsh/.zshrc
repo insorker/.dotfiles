@@ -53,6 +53,9 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 # <== 一些从bashrc抄过来的操作
 
+# open windows folder
+alias open=/mnt/c/Windows/explorer.exe
+
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ]; then
   PATH="$HOME/.local/bin:$PATH"
