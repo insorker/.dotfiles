@@ -3,4 +3,8 @@ require('Comment').setup{
     line = '<leader>cc',
     block = '<leader>bc',
   },
+  opleader = {
+    line = '<leader>cc',
+    block = '<leader>bc',
+  }
 }

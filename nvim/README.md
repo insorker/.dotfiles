@@ -80,6 +80,7 @@ from the grammar definitions to be compatible with nvim!
 [lewis6991/impatient.nvim](https://github.com/lewis6991/impatient.nvim)
 
 ### dashboard
+
 [glepnir/dashboard-nvim](https://github.com/glepnir/dashboard-nvim)
 
 ### 每个项目的根目录
