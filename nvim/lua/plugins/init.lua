@@ -1,77 +1,87 @@
-require('packer').startup(function(use)
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
+require('lazy').setup({
   -- Theme
-  use 'sainnhe/sonokai'
+  { 'sainnhe/sonokai' },
 
   -- Code Highlight
-  use {
+  {
     'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
-  }
+    build = ':TSUpdate',
+  },
 
   -- file tree
-  use {
+  {
     'nvim-tree/nvim-tree.lua',
-    requires = {
-      'nvim-tree/nvim-web-devicons', -- optional, for file icons
+    version = "*",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
     },
-    tag = 'nightly' -- optional, updated every week. (see issue #1193)
-  }
+    config = function()
+      require("nvim-tree").setup {}
+    end,
+  },
 
   -- lsp complete
-  use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
-  use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
-  use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
-  use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
-  use 'L3MON4D3/LuaSnip' -- Snippets plugin
+  'neovim/nvim-lspconfig', -- Collection of configurations for built-in LSP client
+  'hrsh7th/nvim-cmp', -- Autocompletion plugin
+  'hrsh7th/cmp-nvim-lsp', -- LSP source for nvim-cmp
+  'saadparwaiz1/cmp_luasnip', -- Snippets source for nvim-cmp
+  'L3MON4D3/LuaSnip', -- Snippets plugin
 
   -- buffer line
-  use {
+  {
     'akinsho/bufferline.nvim',
-    requires = 'nvim-tree/nvim-web-devicons',
-    tag = "v3.*",
-  }
+    version = '*', dependencies =  'nvim-tree/nvim-web-devicons'
+  },
 
   -- status line
-  use {
+  {
     'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-  }
+    dependencies = { 'nvim-tree/nvim-web-devicons', opt = true }
+  },
 
   -- symbols view
-  use 'simrat39/symbols-outline.nvim'
+  'simrat39/symbols-outline.nvim',
 
   -- file searcher
-  use {
+  {
     'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} },
-    tag = '0.1.0',
-  }
+    dependencies = { {'nvim-lua/plenary.nvim'} },
+    version = '0.1.0',
+  },
 
   -- float terminal
-  use {
+  {
     "akinsho/toggleterm.nvim",
-    tag = '*',
-    config = function()
-      require("toggleterm").setup()
-    end
-  }
+    version = '*',
+    config = true
+  },
 
   -- speed up loading lua modules
   -- Is using a standard Neovim install, i.e. built from source or using a
   -- provided appimage.
-  use 'lewis6991/impatient.nvim'
+  'lewis6991/impatient.nvim',
 
   -- dashboard
-  use 'glepnir/dashboard-nvim'
+  'glepnir/dashboard-nvim',
   
   -- vim rooter
-  use 'airblade/vim-rooter'
+  'airblade/vim-rooter',
 
   -- comment
-  use 'numToStr/Comment.nvim'
-end)
+  'numToStr/Comment.nvim',
+})
 
 require('plugins/plugins-config')

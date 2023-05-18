@@ -1,4 +1,9 @@
 local mappings = {
+  -- move
+  -- https://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
+  ['n j v:count?\'j\':\'gj\''] = { expr=true },
+  ['n k v:count?\'k\':\'gk\''] = { expr=true },
+
   -- move window
   ['n <C-h> <C-w>h'] = {},
   ['n <C-j> <C-w>j'] = {},
@@ -10,8 +15,8 @@ local mappings = {
   ['n <M-[> <C-W><'] = {},
   ['n <M-]> <C-W>>'] = {},
   -- split window
-  ['n <M-s> <Cmd>sp<CR>'] = {},
-  ['n <M-v> <Cmd>vs<CR>'] = {},
+  ['n <leader>s <Cmd>sp<CR>'] = {},
+  ['n <leader>v <Cmd>vs<CR>'] = {},
   -- ['n <M-h> <Cmd>vs<CR>+'] = {},
   -- ['n <M-l> <Cmd>vs<CR>+'] = {},
 

@@ -9,6 +9,9 @@ return {
     number          = true,
     relativenumber  = true,
 
+    -- 复制
+    clipboard = 'unnamedplus',
+
     -- 退格
     backspace = 'indent,eol,start',
 
