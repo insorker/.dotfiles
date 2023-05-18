@@ -10,9 +10,7 @@
 
 ### 插件管理器
 
-[wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim)
-
-遵循[快速开始](https://github.com/wbthomason/packer.nvim#quickstart)操作安装，并在 nvim 中运行指令`:PackerSync`
+[folke/lazy.nvim](https://github.com/folke/lazy.nvim)
 
 ### 主题
 
