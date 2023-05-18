@@ -24,6 +24,7 @@ require('lazy').setup({
   -- file tree
   {
     'nvim-tree/nvim-tree.lua',
+    lazy = true,
     version = "*",
     dependencies = {
       "nvim-tree/nvim-web-devicons",
@@ -49,15 +50,19 @@ require('lazy').setup({
   -- status line
   {
     'nvim-lualine/lualine.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons', opt = true }
+    dependencies = { 'nvim-tree/nvim-web-devicons' }
   },
 
   -- symbols view
-  'simrat39/symbols-outline.nvim',
+  {
+    'simrat39/symbols-outline.nvim',
+    lazy = true,
+  },
 
   -- file searcher
   {
     'nvim-telescope/telescope.nvim',
+    lazy = true,
     dependencies = { {'nvim-lua/plenary.nvim'} },
     version = '0.1.0',
   },
@@ -65,6 +70,7 @@ require('lazy').setup({
   -- float terminal
   {
     "akinsho/toggleterm.nvim",
+    lazy = true,
     version = '*',
     config = true
   },
@@ -75,7 +81,10 @@ require('lazy').setup({
   'lewis6991/impatient.nvim',
 
   -- dashboard
-  'glepnir/dashboard-nvim',
+  {
+    'glepnir/dashboard-nvim',
+    lazy = true,
+  },
   
   -- vim rooter
   'airblade/vim-rooter',
