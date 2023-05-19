@@ -1,2 +1,3 @@
-require('core')
+require('mappings')
+require('options')
 require('plugins')
