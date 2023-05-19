@@ -12,9 +12,6 @@ return {
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   },
-  keys = {
-    { '<leader>t', '<Cmd>NvimTreeToggle<CR>', mode = 'n', desc = 'nvim-tree toggle' }
-  },
   init = function()
     -- disable netrw at the very start of your init.lua (strongly advised)
     vim.g.loaded_netrw = 1
@@ -49,5 +46,7 @@ return {
         if layout[1] == "leaf" and vim.api.nvim_buf_get_option(vim.api.nvim_win_get_buf(layout[2]), "filetype") == "NvimTree" and layout[3] == nil then vim.cmd("confirm quit") end
       end
     })
+
+    vim.api.nvim_set_keymap('n', '<leader>t', '<Cmd>NvimTreeToggle<CR>', {noremap = true})
   end,
 }
