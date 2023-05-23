@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source dotutils.sh --source-only
+source dotutils.sh
 
 opts=$(getopt "svh" "$1")
 STOWFLAGS=""
@@ -8,7 +8,14 @@ STOWFLAGS=""
 for opt in $opts; do
   case $opt in
     -h)
-      printf "Usage:\n ./dotlink.sh [options]\n\nOptions:\n -h\t\tHelp\n -n\t\tSimulate result\n -v\t\tOutput verbose infomation"
+      printf \
+"Usage: ./dotlink.sh [Options]
+
+Options:
+-h    Help
+-n    Simulate result
+-v    Output verbose infomation
+"
       exit 0 ;;
     -s) STOWFLAGS+=" -n" ;;
     -v) STOWFLAGS+=" -v" ;;
