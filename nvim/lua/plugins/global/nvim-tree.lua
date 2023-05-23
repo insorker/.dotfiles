@@ -1,12 +1,5 @@
---[[
-# 使用
-## 展开
-[<leader>t]: 展开
-## 默认映射
-[':h nvim-tree.on_attach']
---]]
-
 return {
+  event = "VeryLazy",
   'nvim-tree/nvim-tree.lua',
   version = "*",
   dependencies = {
@@ -32,6 +25,9 @@ return {
       },
       filters = {
         dotfiles = true,
+      },
+      update_focused_file = {
+        enable = true,
       },
     })
 

@@ -1,4 +1,5 @@
 return {
+  event = "VeryLazy",
   'numToStr/Comment.nvim',
   keys = {
     "<leader>cc", "<leader>bc",

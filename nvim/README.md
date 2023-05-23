@@ -1,5 +1,9 @@
 # Nvim
 
+## Usage
+
+这里给出我常用的一些快捷键（TODO）
+
 ## Software to Install
 
 配合使用的必需软件，具体详见 Plugin 中的说明
@@ -102,3 +106,7 @@ from the grammar definitions to be compatible with nvim!
 ### 注释
 
 [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
+
+### format
+
+[jose-elias-alvarez/null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim)

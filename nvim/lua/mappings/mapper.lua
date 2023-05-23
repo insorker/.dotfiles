@@ -10,9 +10,9 @@ local opts_merge = function(a, b)
   return c
 end
 
-mapper = function(mapping)
+local mapper = function(mapping)
   for cmd, opts in pairs(mapping) do
-    local mode, lhs, rhs = cmd:match("([^|]*) +(.*) +(.*)")
+    local mode, lhs, rhs = cmd:match("([^ ]+) +([^ ]+) +(.+)")
 
     vim.api.nvim_set_keymap(
       mode, lhs, rhs,
