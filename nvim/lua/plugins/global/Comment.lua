@@ -2,8 +2,8 @@ return {
   'numToStr/Comment.nvim',
   keys = {
     "<leader>cc", "<leader>bc",
-    { "<leader>cc", mode = "n" },
-    { "<leader>bc", mode = "n" },
+    { "<leader>cc", mode = "v" },
+    { "<leader>bc", mode = "v" },
   },
   config = function()
     require('Comment').setup{

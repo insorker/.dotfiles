@@ -41,6 +41,8 @@ from the grammar definitions to be compatible with nvim!
 
 ### LSP 补全
 
+[williamboman/mason.nvim](https://github.com/williamboman/mason.nvim)
+
 [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 
 [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
