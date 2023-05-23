@@ -41,9 +41,17 @@ from the grammar definitions to be compatible with nvim!
 
 ### LSP 补全
 
+#### 自动 server 安装
+
 [williamboman/mason.nvim](https://github.com/williamboman/mason.nvim)
 
+[williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
+
+#### lspconfig
+
 [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
+
+#### 自动补全
 
 [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 
@@ -52,6 +60,10 @@ from the grammar definitions to be compatible with nvim!
 [saadparwaiz1/cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip)
 
 [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
+
+#### 补全的同时显示文档
+
+[folke/neodev.nvim](https://github.com/folke/neodev.nvim)
 
 ### buffer line
 

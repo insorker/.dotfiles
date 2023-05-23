@@ -21,12 +21,17 @@ return {
       -- For luasnip users.
       "saadparwaiz1/cmp_luasnip", -- Snippets source for nvim-cmp
       "L3MON4D3/LuaSnip",         -- Snippets plugin
+
+      -- help, docs, and completion
+      { "folke/neodev.nvim", opts = {} }
     },
     config = function()
       require("mason").setup()
       require("mason-lspconfig").setup{
         ensure_installed = servers_default,
       }
+
+      require("neodev").setup({})
 
       -- Add additional capabilities supported by nvim-cmp
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
