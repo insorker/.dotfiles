@@ -2,29 +2,21 @@
 
 什么是[dotfile](https://wiki.archlinux.org/title/Dotfiles)？正如字面意思，dotfile是一些以"."开头的隐藏文件，通常是用户程序的配置文件。由于不同的配置文件数量庞大、位置五花八门，导致迁移个人配置非常困难，所以统一管理和版本控制成了一个迫切的需求。
 
-以下是我的配置，以及dotfile管理方案。
+以下是我的系统配置，以及dotfile管理方案，每个子配置下也会有 README 文件，请仔细阅读。
 
 |          |   OS  | shell |
 | -------- | ----- | ----- |
 | insorker | Linux |  zsh  |
 
-## Configure new system (optional)
+## 新系统配置（可选）
 
-如果你是新安装的系统，需要换源和配置一下git
+在配置新安装的系统前，需要换源、配置 git 和安装 zsh。
 
-### source
+### 换源
 
-使用[清华源 Ubuntu](https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/)
+这里使用[清华源 Ubuntu](https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/)
 
-```shell
-cp /etc/apt/sources.list /etc/apt/sources.list.bak
-sudo sed -i "s@http://.*archive.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
-sudo sed -i "s@http://.*security.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
-sudo apt update
-sudo apt upgrade
-```
-
-### git
+### 配置 git
 
 ```shell
 git config --global user.name "username"
@@ -33,32 +25,29 @@ ssh-keygen -t rsa -C "email"
 cat ~/.ssh/id_rsa.pub
 ```
 
-然后该做什么就不多说了
+然后将 ssh key 复制到 https://github.com/settings/keys 中，配置 github
 
-### zsh
-
-安装zsh
+### 安装zsh
 
 ```shell
 sudo apt install zsh
 ```
 
-## Basic setup
+## 基础配置
 
-安装stow
+### 安装stow
 
 ```shell
 sudo apt-get install stow
 ```
 
-git clone 本项目
+### 引入本项目配置
 
 ```shell
-cd ~
-git clone --depth=1 git@github.com:insorker/.dotfiles.git
+cd ~ && git clone --depth=1 git@github.com:insorker/.dotfiles.git && cd .dotfile
 ```
 
-运行脚本安装配置
+### 运行脚本安装配置
 
 > 注意！！！请确保家目录下不存在.dotfile中同名文件/文件夹/链接。如有冲突，请手动调整
 >
@@ -70,15 +59,21 @@ git clone --depth=1 git@github.com:insorker/.dotfiles.git
 > 
 > Bad: ~/.dotfile/vim/.vimrc/ && ~/.vimrc
 
+查看帮助
+
 ```shell
-cd .dotfile
+./dotlink.sh -h
+```
+
+直接安装
+
+```shell
 ./dotlink.sh
 ```
 
 尝试运行但不安装，并显示详细信息
 
 ```shell
-cd .dotfile
 ./dotlink.sh -nv
 ```
 
@@ -88,15 +83,15 @@ cd .dotfile
 ./dotclear.sh
 ```
 
-更多配置请查阅各个文件夹下的README.md
+**更多配置请查阅各个文件夹下的README.md**
 
-## Advance setup
+## 进阶配置
 
-### dotlink.sh
+### 关于 dotlink.sh
 
 输入命令`./dotlink.sh -h`查看帮助
 
-### How to ignore files
+### 忽视部分配置
 
 你可以在`.dotfiles`文件夹下创建`dotignore`文件，并在其中声明了当前文件夹下你所不需要的配置，如以下示例代码
 
@@ -116,44 +111,37 @@ echo "README.md" >> .stow-local-ignore
 
 > 在没有 .stow-local-ignore 的情况下，stow 会默认忽略一些文件如 README.md。新建 .stow-local-ignore 后，请按照需求将它们添加进配置中
 
-### How to define specific config
+### 特殊链接目录
+
+`~/.dotfiles/dotlink.sh` 的策略是将 stow package 直接链接到 $HOME 目录下，如果有特殊目录需求，可以参考 nvim 目录的配置。
 
 在 stow package 中创建 dotlink.sh 文件。因为目前只是自用的，所以没搞得很简单易用，好在代码很短，你可以试着 RTFSC
 
-## Software to Install
+## 其他软件（非配置）
 
 推荐安装的工具，不需要的自己删.zshrc中的相关配置
 
-### ccache
+### 5⭐
+
+#### [ccache](https://github.com/ccache/ccache)
 
 > 加速gcc
 
-参考man手册中的run modes进行配置
+参考 man 手册中的 run modes 进行配置
 
-### tldr
-
-> too long didn't read
-
-### ctags
-
-> 配合vim
-
-```shell
-ctags -R
-```
-
-### bear
+#### [bear](https://github.com/rizsotto/Bear)
 
 > 配合vim clangd
 
 ```shell
 sudo apt-get bear
+# 具体使用参考 bear 的版本（即 Ubuntu 版本）
 bear -- <your-build-command>
 ```
 
-### [nvm](https://github.com/nvm-sh/nvm)
+#### [nvm](https://github.com/nvm-sh/nvm)
 
-> 配置各种版本的nodejs和npm
+> 配置各种版本的 nodejs 和 npm
 
 使用[LTS version](https://github.com/nvm-sh/nvm#long-term-support)，wsl连接不上的话，建议手动开一下[梯子](https://zhuanlan.zhihu.com/p/451198301)，不开梯子的话可以选择[换源淘宝源](https://www.zhihu.com/question/52918484?utm_id=0)
 
@@ -164,7 +152,7 @@ nvm install --lts
 nvm use --lts
 ```
 
-### [cz-cli](https://github.com/commitizen/cz-cli)
+#### [cz-cli](https://github.com/commitizen/cz-cli)
 
 > 更好的git commit
 
@@ -173,11 +161,7 @@ npm install commitizen -g
 commitizen init cz-conventional-changelog --save-dev --save-exact
 ```
 
-### [ripgrep](https://github.com/BurntSushi/ripgrep)
-
-> 代替grep
-
-### [fzf](https://github.com/junegunn/fzf)
+#### [fzf](https://github.com/junegunn/fzf)
 
 > 命令行下的模糊搜索
 
@@ -188,7 +172,27 @@ CTRL-T 查找目录下条目
 CTRL-R 查找历史命令
 ```
 
-### [fd](https://github.com/sharkdp/fd#installation)
+### 4⭐
+
+#### [tldr](https://github.com/tldr-pages/tldr)
+
+> too long didn't read
+
+由于 chatgpt 的诞生，我个人觉得 RTFM 相比于 RTFAI 略显颓势
+
+#### [ctags](https://github.com/universal-ctags/ctags)
+
+> 配合 vim
+
+```shell
+ctags -R
+```
+
+#### [ripgrep](https://github.com/BurntSushi/ripgrep)
+
+> 代替grep
+
+#### [fd](https://github.com/sharkdp/fd#installation)
 
 > alternative to find
 
@@ -206,13 +210,13 @@ sudo apt install fd-find
 ln -s $(which fdfind) ~/.local/bin/fd
 ```
 
-### [lazygit](https://github.com/jesseduffield/lazygit)
+#### [lazygit](https://github.com/jesseduffield/lazygit)
 
 > lazy git and cooperate with nvim.toggleterm
 
 快捷键详见[keybindings](https://github.com/jesseduffield/lazygit/blob/master/docs/keybindings/Keybindings_zh.md)，太多了以后整理
 
-### [Deno](https://deno.land/manual@v1.31.1/getting_started/installation#download-and-install)
+#### [Deno](https://deno.land/manual@v1.31.1/getting_started/installation#download-and-install)
 
 > 前端相关
 
@@ -224,6 +228,6 @@ ln -s $(which fdfind) ~/.local/bin/fd
 
 > 代替ssh
 
-### 其他的其他
+#### 其他的其他
 
 [链接](https://www.zhihu.com/question/59227720/answer/163594782?utm_source=qq&utm_medium=social&utm_oi=691733779890319360)
