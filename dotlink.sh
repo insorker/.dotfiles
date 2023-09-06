@@ -13,7 +13,7 @@ for opt in $opts; do
 
 Options:
 -h    Help
--n    Simulate result
+-s    Simulate result
 -v    Output verbose infomation
 "
       exit 0 ;;
