@@ -31,6 +31,7 @@ cat ~/.ssh/id_rsa.pub
 
 ```shell
 sudo apt install zsh
+chsh -s /bin/zsh
 ```
 
 ## 基础配置

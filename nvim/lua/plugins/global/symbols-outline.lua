@@ -5,6 +5,6 @@
 return {
   'simrat39/symbols-outline.nvim',
   keys = {
-    { "<leader>g", "<Cmd>SymbolsOutline<CR>", mode = "n", desc = "Symbols-outline Toggle" },
+    { "<leader>l", "<Cmd>SymbolsOutline<CR>", mode = "n", desc = "Symbols-outline Toggle" },
   }
 }
