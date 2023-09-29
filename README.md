@@ -110,25 +110,13 @@ cd ~ && git clone --depth=1 git@github.com:insorker/.dotfiles.git && cd .dotfile
 ./dotclear.sh
 ```
 
+安装配置后请重启终端，部分报错属于正常现象，配置完成后不会出现报错。
+
 **后续配置请查阅各个文件夹下的 README.md**
 
-### 【WSL】配置 Windows Terminal（可选）
-
-#### 主题
-
-挑选喜欢的主题 [Windows Terminal Themes](windowsterminalthemmes.dev)，打开 settings.json 文件，粘贴至 `schemes` 中，最后在配置文件的外观中更换为对应主题
-
-#### 字体
-
-挑选喜欢的字体 [Nerd Font](nerdfonts.com) 并安装，在配置文件的外观中更换为对应字体
-
-#### 其他
-
-将 settings.json 中的 copyOnSelect 改为 true
-
-修该复制粘贴命令
-
 ## 进阶配置
+
+无自定义安装的话可以跳过
 
 ### 关于 dotlink.sh
 
@@ -160,7 +148,7 @@ echo "README.md" >> .stow-local-ignore
 
 在 stow package 中创建 dotlink.sh 文件。因为目前只是自用的，所以没搞得很简单易用，好在代码很短，你可以试着 RTFSC
 
-## 其他软件（非配置）
+## 其他软件
 
 推荐安装的工具，不需要的自己删.zshrc中的相关配置
 
@@ -274,6 +262,24 @@ ln -s $(which fdfind) ~/.local/bin/fd
 #### 其他的其他
 
 [链接](https://www.zhihu.com/question/59227720/answer/163594782?utm_source=qq&utm_medium=social&utm_oi=691733779890319360)
+
+## WSL
+
+### 配置 Windows Terminal
+
+#### 主题
+
+挑选喜欢的主题 [Windows Terminal Themes](windowsterminalthemmes.dev)，打开 settings.json 文件，粘贴至 `schemes` 中，最后在配置文件的外观中更换为对应主题
+
+#### 字体
+
+挑选喜欢的字体 [Nerd Font](nerdfonts.com) 并安装，在配置文件的外观中更换为对应字体
+
+#### 其他
+
+将 settings.json 中的 copyOnSelect 改为 true
+
+修该复制粘贴命令
 
 ## 基本使用
 
