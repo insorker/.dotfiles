@@ -8,8 +8,8 @@ zsh插件位于.dotfile/zsh/.zsh/plugin/。为了保证插件为最新版本，�
 
 ```shell
 cd ~/.dotfiles/zsh/.zsh/plugins/
-git clone git@github.com:zsh-users/zsh-syntax-highlighting.git
-source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+git clone git@github.com:zsh-users/zsh-autosuggestions.git
+source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 ```
 
 鄙人目前使用的插件有

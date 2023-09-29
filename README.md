@@ -27,12 +27,16 @@ cat ~/.ssh/id_rsa.pub
 
 然后将 ssh key 复制到 https://github.com/settings/keys 中，配置 github
 
+完成后，在终端输入`ssh -T git@github.com`，收到问题后请输入`yes`并回车。如果完成后收到`Hi ···`，则配置成功。
+
 ### 安装zsh
 
 ```shell
 sudo apt install zsh
 chsh -s /bin/zsh
 ```
+
+重启后可以看到 zsh 默认配置选项，选择`q`退出
 
 ## 基础配置
 
@@ -45,7 +49,7 @@ sudo apt-get install stow
 ### 引入本项目配置
 
 ```shell
-cd ~ && git clone --depth=1 git@github.com:insorker/.dotfiles.git && cd .dotfile
+cd ~ && git clone --depth=1 git@github.com:insorker/.dotfiles.git && cd .dotfiles
 ```
 
 ### 运行脚本安装配置
@@ -75,7 +79,7 @@ cd ~ && git clone --depth=1 git@github.com:insorker/.dotfiles.git && cd .dotfile
 尝试运行但不安装，并显示详细信息
 
 ```shell
-./dotlink.sh -nv
+./dotlink.sh -sv
 ```
 
 删除配置【安装时无需操作】
@@ -85,6 +89,36 @@ cd ~ && git clone --depth=1 git@github.com:insorker/.dotfiles.git && cd .dotfile
 ```
 
 **更多配置请查阅各个文件夹下的README.md**
+
+### 配置 clash (可选)
+
+创建 .zshrc_profile 文件并填入如下内容
+
+```
+if [ $GPROXY ]; then
+   export GPROXY_HOSTIP=$(cat /etc/resolv.conf | grep "nameserver" | cut -f 2 -d " ")
+   export http_proxy="http://$GPROXY_HOSTIP:7890"
+   export https_proxy="http://$GPROXY_HOSTIP:7890"
+   export all_proxy="socks5://$GPROXY_HOSTIP:7890"
+   export ALL_PROXY="socks5://$GPROXY_HOSTIP:7890"
+else
+   unset HOSTIP
+   unset http_proxy
+   unset https_proxy
+   unset all_proxy
+   unset ALL_PROXY
+fi
+```
+
+完成后
+
+开启：`GPROXY=1 && source .zshrc`
+
+关闭：`GPROXY=0 && source .zshrc`
+
+### 配置 Windows Terminal（可选）
+
+TODO:
 
 ## 进阶配置
 
@@ -128,14 +162,14 @@ echo "README.md" >> .stow-local-ignore
 
 > 加速gcc
 
-参考 man 手册中的 run modes 进行配置
+参考 man 手册中的 run modes 进行配置（已默认配好）
 
 #### [bear](https://github.com/rizsotto/Bear)
 
 > 配合vim clangd
 
 ```shell
-sudo apt-get bear
+sudo apt-get install bear
 # 具体使用参考 bear 的版本（即 Ubuntu 版本）
 bear -- <your-build-command>
 ```

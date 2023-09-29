@@ -1,5 +1,32 @@
 # Nvim
 
+## Install
+
+安装 [FUSE](https://github.com/AppImage/AppImageKit/wiki/FUSE)
+
+```
+# For example, on Ubuntu (>= 22.04):
+sudo add-apt-repository universe
+sudo apt install libfuse2
+```
+
+安装 [nvim](https://github.com/neovim/neovim/wiki/Installing-Neovim#appimage-universal-linux-package)
+
+
+```
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+chmod u+x nvim.appimage
+./nvim.appimage
+sudo cp ./nvim.appimage /usr/local/bin
+```
+
+创建链接
+
+```
+export CUSTOM_NVIM_PATH=/usr/local/bin/nvim.appimage
+sudo update-alternatives --install /usr/bin/nvim nvim "${CUSTOM_NVIM_PATH}" 110
+```
+
 ## Usage
 
 这里给出我常用的一些快捷键（TODO）
