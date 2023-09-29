@@ -1,20 +1,32 @@
 # insorker's dotfile
 
-什么是[dotfile](https://wiki.archlinux.org/title/Dotfiles)？正如字面意思，dotfile是一些以"."开头的隐藏文件，通常是用户程序的配置文件。由于不同的配置文件数量庞大、位置五花八门，导致迁移个人配置非常困难，所以统一管理和版本控制成了一个迫切的需求。
+什么是 [dotfile](https://wiki.archlinux.org/title/Dotfiles)？正如字面意思，dotfile是一些以"."开头的隐藏文件，通常是用户程序的配置文件。由于不同的配置文件数量庞大、位置五花八门，导致迁移个人配置非常困难，所以统一管理和版本控制成了一个迫切的需求。
 
-以下是我的系统配置，以及dotfile管理方案，每个子配置下也会有 README 文件，请仔细阅读。
+以下是我的系统配置，以及 dotfile 管理方案，每个子配置下也会有 README 文件，请仔细阅读。
 
 |          |   OS  | shell |
 | -------- | ----- | ----- |
 | insorker | Linux |  zsh  |
 
-## 新系统配置（可选）
+## 新系统配置
 
 在配置新安装的系统前，需要换源、配置 git 和安装 zsh。
 
 ### 换源
 
 这里使用[清华源 Ubuntu](https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/)
+
+```shell
+sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+sudo vi /etc/apt/sources.list
+# 进入 vim
+ggVGd
+粘贴
+<Esc>:wq!
+# 离开 vim
+sudo apt update
+sudo apt upgrade
+```
 
 ### 配置 git
 
