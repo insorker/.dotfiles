@@ -1,12 +1,22 @@
-# insorker's dotfile
+<h1 align="center">insorker's dotfiles</h1>
 
-什么是 [dotfile](https://wiki.archlinux.org/title/Dotfiles)？正如字面意思，dotfile是一些以"."开头的隐藏文件，通常是用户程序的配置文件。由于不同的配置文件数量庞大、位置五花八门，导致迁移个人配置非常困难，所以统一管理和版本控制成了一个迫切的需求。
+什么是 [dotfiles](https://wiki.archlinux.org/title/Dotfiles)？正如字面意思，dotfiles 是一些以"."开头的隐藏文件，通常是用户程序的配置文件。由于不同的配置文件数量庞大、位置五花八门，导致迁移个人配置非常困难，所以统一管理和版本控制成了一个迫切的需求。
 
-以下是我的系统配置，以及 dotfile 管理方案，每个子配置下也会有 README 文件，请仔细阅读。
+以下是我的系统配置，以及 dotfiles 管理方案。
 
-|          |   OS  | shell |
-| -------- | ----- | ----- |
-| insorker | Linux |  zsh  |
+|          |      OS     | shell |
+| -------- | ----------- | ----- |
+| insorker | Ubuntu(WSL) |  zsh  |
+
+除了这篇 README 外，每个子文件夹下也有一份 README，请务必仔细阅读。
+
+> 这份配置目前仅适合阅读借鉴（如果有值得借鉴的地方的话），不推荐直接使用，理由如下
+> 
+> 1. 这不是通用配置，是我的个人配置，里面不可避免的存在我的使用习惯和喜好
+> 
+> 2. 文档确实存在不完善的地方，每次对文档的更新可能都要等到我装新系统的那一天
+>
+> 当然如果你对上述理由并不介意，直接使用也是没有问题的
 
 ## 新系统配置
 
@@ -39,7 +49,7 @@ cat ~/.ssh/id_rsa.pub
 
 然后将 ssh key 复制到 https://github.com/settings/keys 中，配置 github
 
-完成后，在终端输入`ssh -T git@github.com`，收到问题后请输入`yes`并回车。如果完成后收到`Hi ···`，则配置成功。
+完成后，在终端输入 `ssh -T git@github.com`，收到问题后请输入 `yes` 并回车。如果完成后收到 `Hi ···`，则配置成功。
 
 ### 安装zsh
 
@@ -48,7 +58,7 @@ sudo apt install zsh
 chsh -s /bin/zsh
 ```
 
-重启后可以看到 zsh 默认配置选项，选择`q`退出
+重启后可以看到 zsh 默认配置选项，选择 `q` 退出
 
 ## 基础配置
 
@@ -82,7 +92,7 @@ cd ~ && git clone --depth=1 git@github.com:insorker/.dotfiles.git && cd .dotfile
 ./dotlink.sh -h
 ```
 
-【安装前务必尝试一次】尝试运行命令但不安装，并显示详细信息
+【安装前务必运行一次】尝试运行命令但不安装，并显示详细信息
 
 ```shell
 ./dotlink.sh -sv
@@ -102,41 +112,21 @@ cd ~ && git clone --depth=1 git@github.com:insorker/.dotfiles.git && cd .dotfile
 
 **后续配置请查阅各个文件夹下的 README.md**
 
-### 配置 clash (可选)
+### 【WSL】配置 Windows Terminal（可选）
 
-创建 .zshrc_profile 文件并填入如下内容
-
-```
-if [ $GPROXY ]; then
-   export GPROXY_HOSTIP=$(cat /etc/resolv.conf | grep "nameserver" | cut -f 2 -d " ")
-   export http_proxy="http://$GPROXY_HOSTIP:7890"
-   export https_proxy="http://$GPROXY_HOSTIP:7890"
-   export all_proxy="socks5://$GPROXY_HOSTIP:7890"
-   export ALL_PROXY="socks5://$GPROXY_HOSTIP:7890"
-else
-   unset HOSTIP
-   unset http_proxy
-   unset https_proxy
-   unset all_proxy
-   unset ALL_PROXY
-fi
-```
-
-完成后
-
-开启：`GPROXY=1 && source .zshrc`
-
-关闭：`GPROXY=0 && source .zshrc`
-
-### 配置 Windows Terminal（可选）
+#### 主题
 
 挑选喜欢的主题 [Windows Terminal Themes](windowsterminalthemmes.dev)，打开 settings.json 文件，粘贴至 `schemes` 中，最后在配置文件的外观中更换为对应主题
 
+#### 字体
+
 挑选喜欢的字体 [Nerd Font](nerdfonts.com) 并安装，在配置文件的外观中更换为对应字体
+
+#### 其他
 
 将 settings.json 中的 copyOnSelect 改为 true
 
-TODO: 修该复制粘贴命令
+修该复制粘贴命令
 
 ## 进阶配置
 
@@ -284,3 +274,15 @@ ln -s $(which fdfind) ~/.local/bin/fd
 #### 其他的其他
 
 [链接](https://www.zhihu.com/question/59227720/answer/163594782?utm_source=qq&utm_medium=social&utm_oi=691733779890319360)
+
+## 基本使用
+
+### Clash
+
+开启：`GPROXY=1 && source .zshrc`
+
+关闭：`GPROXY=0 && source .zshrc`
+
+### WSL ONLY
+
+用 windows 打开：open [文件]
