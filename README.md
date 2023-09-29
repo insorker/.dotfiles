@@ -20,8 +20,8 @@
 sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
 sudo vi /etc/apt/sources.list
 # 进入 vim
-ggVGd
-粘贴
+ggVGdi
+粘贴对应镜像源
 <Esc>:wq!
 # 离开 vim
 sudo apt update
@@ -61,12 +61,12 @@ sudo apt-get install stow
 ### 引入本项目配置
 
 ```shell
-cd ~ && git clone --depth=1 git@github.com:insorker/.dotfiles.git && cd .dotfiles
+cd ~ && git clone --depth=1 git@github.com:insorker/.dotfiles.git && cd .dotfiles && ls
 ```
 
 ### 运行脚本安装配置
 
-> 注意！！！请确保家目录下不存在.dotfile中同名文件/文件夹/链接。如有冲突，请手动调整
+> 如果你不是新系统，注意！！！请确保家目录下不存在.dotfile中同名文件/文件夹/链接。如有冲突，请手动调整
 >
 > e.g.
 > 
@@ -82,25 +82,25 @@ cd ~ && git clone --depth=1 git@github.com:insorker/.dotfiles.git && cd .dotfile
 ./dotlink.sh -h
 ```
 
-直接安装
-
-```shell
-./dotlink.sh
-```
-
-尝试运行但不安装，并显示详细信息
+【安装前务必尝试一次】尝试运行命令但不安装，并显示详细信息
 
 ```shell
 ./dotlink.sh -sv
 ```
 
-删除配置【安装时无需操作】
+安装配置
+
+```shell
+./dotlink.sh
+```
+
+删除配置
 
 ```shell
 ./dotclear.sh
 ```
 
-**更多配置请查阅各个文件夹下的README.md**
+**后续配置请查阅各个文件夹下的 README.md**
 
 ### 配置 clash (可选)
 
@@ -130,7 +130,13 @@ fi
 
 ### 配置 Windows Terminal（可选）
 
-TODO:
+挑选喜欢的主题 [Windows Terminal Themes](windowsterminalthemmes.dev)，打开 settings.json 文件，粘贴至 `schemes` 中，最后在配置文件的外观中更换为对应主题
+
+挑选喜欢的字体 [Nerd Font](nerdfonts.com) 并安装，在配置文件的外观中更换为对应字体
+
+将 settings.json 中的 copyOnSelect 改为 true
+
+TODO: 修该复制粘贴命令
 
 ## 进阶配置
 

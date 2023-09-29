@@ -4,10 +4,16 @@
 
 TODO: write script to automatic download
 
-zsh插件位于.dotfile/zsh/.zsh/plugin/。为了保证插件为最新版本，请手动git clone仓库到zsh/.zsh/plugin/下，并在zsh/.zshrc添加配置
+zsh插件位于.dotfile/zsh/.zsh/plugin/，请手动添加文件夹
 
 ```shell
+mkdir ~/.dotfiles/zsh/.zsh/plugins/
 cd ~/.dotfiles/zsh/.zsh/plugins/
+```
+
+为了保证插件为最新版本，请手动git clone仓库到zsh/.zsh/plugin/下，并在zsh/.zshrc添加配置
+
+```shell
 git clone git@github.com:zsh-users/zsh-autosuggestions.git
 source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 ```
