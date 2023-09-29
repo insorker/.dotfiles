@@ -38,6 +38,14 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
+# ==> 启用插件
+source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.zsh/.p10k.zsh ]] || source ~/.zsh/.p10k.zsh
+# <== 启用插件
+
 # ==> 一些从bashrc抄过来的操作
 alias ll='ls -alF'
 # enable color support of ls and also add handy aliases
@@ -53,18 +61,10 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 # <== 一些从bashrc抄过来的操作
 
-# open windows folder
-alias open=/mnt/c/Windows/explorer.exe
-
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ]; then
   PATH="$HOME/.local/bin:$PATH"
 fi
-
-# 启用插件
-source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
 
 # 启用色彩提示符
 autoload -U colors && colors
@@ -72,12 +72,21 @@ autoload -U colors && colors
 # 接受当前提示 
 bindkey '^t' autosuggest-accept
 
-# use vi-mode
-# it seems to forbid some original option
-# bindkey -v
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.zsh/.p10k.zsh ]] || source ~/.zsh/.p10k.zsh
+# ==> Proxy
+if [ $GPROXY ]; then
+  export GPROXY_HOSTIP=$(cat /etc/resolv.conf | grep "nameserver" | cut -f 2 -d " ")
+  export http_proxy="http://$GPROXY_HOSTIP:7890"
+  export https_proxy="http://$GPROXY_HOSTIP:7890"
+  export all_proxy="socks5://$GPROXY_HOSTIP:7890"
+  export ALL_PROXY="socks5://$GPROXY_HOSTIP:7890"
+else
+  unset HOSTIP
+  unset http_proxy
+  unset https_proxy
+  unset all_proxy
+  unset ALL_PROXY
+fi
+# <== Proxy
 
 # ==> Software
 # ccache
@@ -103,3 +112,7 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 if [ -f $HOME/.zshrc_profile ]; then
 	source $HOME/.zshrc_profile
 fi
+
+# WSL ONLY
+# open windows folder, like: 'open .'
+alias open=/mnt/c/Windows/explorer.exe
