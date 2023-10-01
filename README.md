@@ -198,9 +198,25 @@ commitizen init cz-conventional-changelog --save-dev --save-exact
 
 ⚠️ Key bindings (CTRL-T / CTRL-R / ALT-C) and fuzzy auto-completion may not be enabled by default. Refer to the package documentation for more information. (e.g. apt-cache show fzf)
 
-```
+```shell
 CTRL-T 查找目录下条目
 CTRL-R 查找历史命令
+```
+
+#### unzip
+
+> nvim 中可能要用
+
+```shell
+sudo apt install unzip
+```
+
+#### build-essential
+
+> gcc
+
+```shell
+sudo apt install build-essential
 ```
 
 ### 4⭐

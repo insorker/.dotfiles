@@ -2,7 +2,7 @@
 
 ## Install
 
-安装 [FUSE](https://github.com/AppImage/AppImageKit/wiki/FUSE)
+(如果下列步骤遇到报错）安装 [FUSE](https://github.com/AppImage/AppImageKit/wiki/FUSE)
 
 ```
 # For example, on Ubuntu (>= 22.04):
@@ -15,7 +15,7 @@ sudo apt install libfuse2
 
 ```
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-chmod u+x nvim.appimage
+chmod a+x nvim.appimage
 ./nvim.appimage
 sudo cp ./nvim.appimage /usr/local/bin
 ```
