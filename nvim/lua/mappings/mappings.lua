@@ -1,4 +1,7 @@
 local mappings = {
+  -- help
+  ['n <leader>h <Cmd>e ~/.config/nvim/op.md<CR>'] = {},
+
   -- move
   -- https://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
   ['n j v:count?\'j\':\'gj\''] = { expr = true },
