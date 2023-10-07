@@ -1,3 +1,5 @@
+set -o errexit
+
 DOTFILES=$HOME/.dotfiles
 IGNOREFILES=$DOTFILES/dotignore
 
