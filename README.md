@@ -12,7 +12,7 @@
 
 > 这份配置目前仅适合阅读借鉴（如果有值得借鉴的地方的话），不推荐直接使用，理由如下
 > 
-> 1. 这不是通用配置，是我的个人配置，里面不可避免的存在我的使用习惯和喜好
+> 1. 这不是通用配置，是我的个人配置，里面不可避免的存在我个人的使用习惯和喜好
 > 
 > 2. 文档确实存在不完善的地方，每次对文档的更新可能都要等到我装新系统的那一天
 >
@@ -152,98 +152,121 @@ echo "README.md" >> .stow-local-ignore
 
 推荐安装的工具，不需要的自己删.zshrc中的相关配置
 
-### 5⭐
+### 启用中
 
-#### [ccache](https://github.com/ccache/ccache)
+<details>
+  <summary><a href="https://github.com/ccache/ccache">ccache</a></summary>
+用途：加速gcc
 
-> 加速gcc
+安装：参考 man 手册中的 run modes 进行配置（已默认在 .zshrc 中配好）
+</details>
 
-参考 man 手册中的 run modes 进行配置（已默认配好）
+<details>
+  <summary><a href="https://github.com/nvm-sh/nvm">nvm</a></summary>
+用途：配置各种版本的 nodejs 和 npm
 
-#### [bear](https://github.com/rizsotto/Bear)
-
-> 配合vim clangd
-
-```shell
-sudo apt-get install bear
-# 具体使用参考 bear 的版本（即 Ubuntu 版本）
-bear -- <your-build-command>
-```
-
-#### [nvm](https://github.com/nvm-sh/nvm)
-
-> 配置各种版本的 nodejs 和 npm
-
-使用[LTS version](https://github.com/nvm-sh/nvm#long-term-support)，wsl连接不上的话，建议手动开一下[梯子](https://zhuanlan.zhihu.com/p/451198301)，不开梯子的话可以选择[换源淘宝源](https://www.zhihu.com/question/52918484?utm_id=0)
+安装：使用[LTS version](https://github.com/nvm-sh/nvm#long-term-support)，wsl连接不上的话，建议手动开一下[梯子](https://zhuanlan.zhihu.com/p/451198301)，不开梯子的话可以选择[换源淘宝源](https://www.zhihu.com/question/52918484?utm_id=0)
 
 当然也可能是[ curl 的问题](https://www.likecs.com/ask-1274765.html)，总之就是很逆天啦
+
+使用：
 
 ```shell
 nvm install --lts
 nvm use --lts
 ```
+</details>
 
-#### [cz-cli](https://github.com/commitizen/cz-cli)
+<details>
+  <summary><a href="https://github.com/commitizen/cz-cli">cz-cli</a></summary>
+用途：更好的 git commit
 
-> 更好的git commit
+安装：`npm install commitizen -g`
 
-```shell
-npm install commitizen -g
-commitizen init cz-conventional-changelog --save-dev --save-exact
-```
+使用：`commitizen init cz-conventional-changelog --save-dev --save-exact`
+</details>
 
-#### [fzf](https://github.com/junegunn/fzf)
+<details>
+  <summary><a href="https://github.com/junegunn/fzf">fzf</a></summary>
+用途：命令行下的模糊搜索
 
-> 命令行下的模糊搜索
+安装：见官网，key bindings 已经配置好了（⚠️ Key bindings (CTRL-T / CTRL-R / ALT-C) and fuzzy auto-completion may not be enabled by default. Refer to the package documentation for more information. (e.g. apt-cache show fzf)）
 
-⚠️ Key bindings (CTRL-T / CTRL-R / ALT-C) and fuzzy auto-completion may not be enabled by default. Refer to the package documentation for more information. (e.g. apt-cache show fzf)
+使用：
 
 ```shell
 CTRL-T 查找目录下条目
 CTRL-R 查找历史命令
 ```
+</details>
 
-#### unzip
+<details>
+  <summary><a href="#">unzip</a></summary>
+用途：nvim 中要用
 
-> nvim 中可能要用
+安装：`sudo apt install unzip`
+</details>
 
-```shell
-sudo apt install unzip
-```
+<details>
+  <summary><a href="#">build-essential</a></summary>
+用途：为了 gcc
 
-#### build-essential
+安装：`sudo apt install build-essential`
+</details>
 
-> gcc
+<details>
+  <summary><a href="https://github.com/tldr-pages/tldr">tldr</a></summary>
+用途：too long didn't read，由于 chatgpt 的诞生，我个人觉得 RTFM 相比于 RTFAI 略显颓势
+</details>
 
-```shell
-sudo apt install build-essential
-```
+<details>
+  <summary><a href="https://github.com/jesseduffield/lazygit">lazygit</a></summary>
+用途：lazy git and cooperate with nvim.toggleterm
 
-### 4⭐
+使用：快捷键详见[keybindings](https://github.com/jesseduffield/lazygit/blob/master/docs/keybindings/Keybindings_zh.md)，太多了以后整理
+</details>
 
-#### [tldr](https://github.com/tldr-pages/tldr)
+<details>
+  <summary><a href="https://www.docker.com/">docker</a></summary>
+用途：开发
 
-> too long didn't read
+安装：https://docs.docker.com/engine/install/ubuntu/
 
-由于 chatgpt 的诞生，我个人觉得 RTFM 相比于 RTFAI 略显颓势
+换源：阿里源：https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors
+</details>
 
-#### [ctags](https://github.com/universal-ctags/ctags)
+### 已弃用
 
-> 配合 vim
+<details>
+  <summary><a href="https://github.com/rizsotto/Bear">bear</a></summary>
+用途：配合vim clangd
+
+安装：`sudo apt-get install bear`
+
+使用：`bear -- <your-build-command>`
+</details>
+
+<details>
+  <summary><a href="https://github.com/universal-ctags/ctags">ctags</a></summary>
+用途：配合 vim
+
+使用：
 
 ```shell
 ctags -R
 ```
+</details>
 
-#### [ripgrep](https://github.com/BurntSushi/ripgrep)
+<details>
+  <summary><a href="https://github.com/BurntSushi/ripgrep">ripgrep</a></summary>
+用途：代替 grep
+</details>
 
-> 代替grep
+<details>
+  <summary><a href="https://github.com/sharkdp/fd#installation">fd</a></summary>
+用途：代替 find
 
-#### [fd](https://github.com/sharkdp/fd#installation)
-
-> alternative to find
-
-Make sure that $HOME/.local/bin is in your $PATH.
+安装：Make sure that $HOME/.local/bin is in your $PATH.
 
 ```zsh
 # set PATH so it includes user's private bin if it exists
@@ -256,28 +279,7 @@ fi
 sudo apt install fd-find
 ln -s $(which fdfind) ~/.local/bin/fd
 ```
-
-#### [lazygit](https://github.com/jesseduffield/lazygit)
-
-> lazy git and cooperate with nvim.toggleterm
-
-快捷键详见[keybindings](https://github.com/jesseduffield/lazygit/blob/master/docs/keybindings/Keybindings_zh.md)，太多了以后整理
-
-#### [Deno](https://deno.land/manual@v1.31.1/getting_started/installation#download-and-install)
-
-> 前端相关
-
-### 其他
-
-以下被推荐，但未被使用，本流程无需安装
-
-#### mosh
-
-> 代替ssh
-
-#### 其他的其他
-
-[链接](https://www.zhihu.com/question/59227720/answer/163594782?utm_source=qq&utm_medium=social&utm_oi=691733779890319360)
+</details>
 
 ## WSL
 
@@ -308,3 +310,4 @@ ln -s $(which fdfind) ~/.local/bin/fd
 ### WSL ONLY
 
 用 windows 打开：open [文件]
+用 vscode 打开：code .
