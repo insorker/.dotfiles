@@ -156,6 +156,7 @@ echo "README.md" >> .stow-local-ignore
 
 <details>
   <summary><a href="https://github.com/ccache/ccache">ccache</a></summary>
+
 用途：加速gcc
 
 安装：参考 man 手册中的 run modes 进行配置（已默认在 .zshrc 中配好）
@@ -163,6 +164,7 @@ echo "README.md" >> .stow-local-ignore
 
 <details>
   <summary><a href="https://github.com/nvm-sh/nvm">nvm</a></summary>
+
 用途：配置各种版本的 nodejs 和 npm
 
 安装：使用[LTS version](https://github.com/nvm-sh/nvm#long-term-support)，wsl连接不上的话，建议手动开一下[梯子](https://zhuanlan.zhihu.com/p/451198301)，不开梯子的话可以选择[换源淘宝源](https://www.zhihu.com/question/52918484?utm_id=0)
@@ -179,6 +181,7 @@ nvm use --lts
 
 <details>
   <summary><a href="https://github.com/commitizen/cz-cli">cz-cli</a></summary>
+
 用途：更好的 git commit
 
 安装：`npm install commitizen -g`
@@ -188,6 +191,7 @@ nvm use --lts
 
 <details>
   <summary><a href="https://github.com/junegunn/fzf">fzf</a></summary>
+
 用途：命令行下的模糊搜索
 
 安装：见官网，key bindings 已经配置好了（⚠️ Key bindings (CTRL-T / CTRL-R / ALT-C) and fuzzy auto-completion may not be enabled by default. Refer to the package documentation for more information. (e.g. apt-cache show fzf)）
@@ -202,6 +206,7 @@ CTRL-R 查找历史命令
 
 <details>
   <summary><a href="#">unzip</a></summary>
+
 用途：nvim 中要用
 
 安装：`sudo apt install unzip`
@@ -209,6 +214,7 @@ CTRL-R 查找历史命令
 
 <details>
   <summary><a href="#">build-essential</a></summary>
+
 用途：为了 gcc
 
 安装：`sudo apt install build-essential`
@@ -216,11 +222,13 @@ CTRL-R 查找历史命令
 
 <details>
   <summary><a href="https://github.com/tldr-pages/tldr">tldr</a></summary>
+
 用途：too long didn't read，由于 chatgpt 的诞生，我个人觉得 RTFM 相比于 RTFAI 略显颓势
 </details>
 
 <details>
   <summary><a href="https://github.com/jesseduffield/lazygit">lazygit</a></summary>
+
 用途：lazy git and cooperate with nvim.toggleterm
 
 使用：快捷键详见[keybindings](https://github.com/jesseduffield/lazygit/blob/master/docs/keybindings/Keybindings_zh.md)，太多了以后整理
@@ -228,6 +236,7 @@ CTRL-R 查找历史命令
 
 <details>
   <summary><a href="https://www.docker.com/">docker</a></summary>
+
 用途：开发
 
 安装：https://docs.docker.com/engine/install/ubuntu/
@@ -239,6 +248,7 @@ CTRL-R 查找历史命令
 
 <details>
   <summary><a href="https://github.com/rizsotto/Bear">bear</a></summary>
+
 用途：配合vim clangd
 
 安装：`sudo apt-get install bear`
@@ -248,6 +258,7 @@ CTRL-R 查找历史命令
 
 <details>
   <summary><a href="https://github.com/universal-ctags/ctags">ctags</a></summary>
+
 用途：配合 vim
 
 使用：
@@ -259,11 +270,13 @@ ctags -R
 
 <details>
   <summary><a href="https://github.com/BurntSushi/ripgrep">ripgrep</a></summary>
+
 用途：代替 grep
 </details>
 
 <details>
   <summary><a href="https://github.com/sharkdp/fd#installation">fd</a></summary>
+
 用途：代替 find
 
 安装：Make sure that $HOME/.local/bin is in your $PATH.
