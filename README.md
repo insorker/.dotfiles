@@ -114,6 +114,60 @@ cd ~ && git clone --depth=1 git@github.com:insorker/.dotfiles.git && cd .dotfile
 
 **后续配置请查阅各个文件夹下的 README.md**
 
+## WSL 基础配置
+
+### 基本使用
+
+用 windows 打开：open [文件]
+用 vscode 打开：code .
+
+### 配置 Windows Terminal
+
+#### 主题
+
+挑选喜欢的主题 [Windows Terminal Themes](windowsterminalthemmes.dev)，打开 settings.json 文件，粘贴至 `schemes` 中，最后在配置文件的外观中更换为对应主题
+
+#### 字体
+
+挑选喜欢的字体 [Nerd Font](nerdfonts.com) 并安装，在配置文件的外观中更换为对应字体
+
+#### 其他
+
+将 settings.json 中的 copyOnSelect 改为 true
+
+修改复制粘贴命令
+
+### proxy
+
+不同的人会有不同的需求，我这里只贴出我的需求，详见[镜像模式](https://zhuanlan.zhihu.com/p/659074950)部分
+
+即，在`C:\Users\{username}`下创建`.wslconfig`文件夹，加入这段配置
+
+```
+[experimental]
+networkingMode=mirrored
+dnsTunneling=true
+firewall=true
+autoProxy=true
+```
+
+### input latency
+
+亲测 zsh-syntax-highlighting 会导致命令行输入卡顿，详见[syntax highlighting is super slow in WSL2](https://github.com/zsh-users/zsh-syntax-highlighting/issues/790)
+
+解决方法就是
+
+> I solved this by excluding windows directories from $PATH by adding following in `/etc/wsl.conf`. Create the file if it doesn't exist
+> 
+> ```
+> [interop]
+> appendWindowsPath = false
+> ```
+>
+> Then restart wsl with `wsl --shutdown`
+
+当然这样就不能使用一些 windows 中的命令了，需要自行配置（已配置部分，如 code）。如果不介意卡顿的话，可以跳过这步。
+
 ## 进阶配置
 
 无自定义安装的话可以跳过
@@ -244,6 +298,20 @@ CTRL-R 查找历史命令
 换源：阿里源：https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors
 </details>
 
+<details>
+  <summary><a href="#">tree</a></summary>
+
+安装：`sudo apt install tree`
+</details>
+
+<details>
+  <summary><a href="#">rlwrap</a></summary>
+
+用途：支持上下左右切换命令，比如用在 sqlite 的命令行中
+
+安装：`sudo apt install rlwrap`
+</details>
+
 ### 已弃用
 
 <details>
@@ -293,34 +361,3 @@ sudo apt install fd-find
 ln -s $(which fdfind) ~/.local/bin/fd
 ```
 </details>
-
-## WSL
-
-### 配置 Windows Terminal
-
-#### 主题
-
-挑选喜欢的主题 [Windows Terminal Themes](windowsterminalthemmes.dev)，打开 settings.json 文件，粘贴至 `schemes` 中，最后在配置文件的外观中更换为对应主题
-
-#### 字体
-
-挑选喜欢的字体 [Nerd Font](nerdfonts.com) 并安装，在配置文件的外观中更换为对应字体
-
-#### 其他
-
-将 settings.json 中的 copyOnSelect 改为 true
-
-修该复制粘贴命令
-
-## 基本使用
-
-### Clash
-
-开启：`GPROXY=1 && source .zshrc`
-
-关闭：`GPROXY=0 && source .zshrc`
-
-### WSL ONLY
-
-用 windows 打开：open [文件]
-用 vscode 打开：code .

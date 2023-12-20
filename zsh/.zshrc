@@ -40,10 +40,10 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # ==> 启用插件
 source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.zsh/.p10k.zsh ]] || source ~/.zsh/.p10k.zsh
+source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # <== 启用插件
 
 # ==> 一些从bashrc抄过来的操作
@@ -72,22 +72,6 @@ autoload -U colors && colors
 # 接受当前提示 
 bindkey '^t' autosuggest-accept
 
-# ==> Proxy
-if [ $GPROXY ]; then
-  export GPROXY_HOSTIP=$(cat /etc/resolv.conf | grep "nameserver" | cut -f 2 -d " ")
-  export http_proxy="http://$GPROXY_HOSTIP:7890"
-  export https_proxy="http://$GPROXY_HOSTIP:7890"
-  export all_proxy="socks5://$GPROXY_HOSTIP:7890"
-  export ALL_PROXY="socks5://$GPROXY_HOSTIP:7890"
-else
-  unset HOSTIP
-  unset http_proxy
-  unset https_proxy
-  unset all_proxy
-  unset ALL_PROXY
-fi
-# <== Proxy
-
 # ==> Software
 # ccache
 export PATH=/usr/lib/ccache:$PATH
@@ -103,9 +87,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# deno
-export DENO_INSTALL="/home/insorker/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"
 # <== Software
 
 # import .zsh_profile
@@ -116,3 +97,4 @@ fi
 # WSL ONLY
 # open windows folder, like: 'open .'
 alias open=/mnt/c/Windows/explorer.exe
+alias code="/mnt/c/Users/26773/AppData/Local/Programs/Microsoft\ VS\ Code/bin/code"
