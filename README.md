@@ -114,11 +114,12 @@ cd ~ && git clone --depth=1 git@github.com:insorker/.dotfiles.git && cd .dotfile
 
 **后续配置请查阅各个文件夹下的 README.md**
 
-## WSL 基础配置
+## WSL 配置
 
 ### 基本使用
 
 用 windows 打开：open [文件]
+
 用 vscode 打开：code .
 
 ### 配置 Windows Terminal
@@ -170,7 +171,7 @@ autoProxy=true
 
 ## 进阶配置
 
-无自定义安装的话可以跳过
+无自定义安装需求的话可以跳过
 
 ### 关于 dotlink.sh
 
