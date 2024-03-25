@@ -1,6 +1,6 @@
 -- more servers https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
 local servers_default = {
-  "lua_ls", "bashls", "clangd", "dockerls", "jsonls", "marksman", "pyright"
+  "lua_ls", "bashls", "clangd", "dockerls", "jsonls", "marksman", "pyright", "rust_analyzer"
 }
 
 return {
