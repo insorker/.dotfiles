@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TARGET=$HOME/.config/nvim
+TARGET=$HOME/.config
 
 if [ ! -d "$TARGET" ]; then
   mkdir -p $TARGET

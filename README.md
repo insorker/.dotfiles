@@ -89,25 +89,27 @@ cd ~ && git clone --depth=1 git@github.com:insorker/.dotfiles.git && cd .dotfile
 查看帮助
 
 ```shell
-./dotlink.sh -h
+./link.sh -h
+./unlink.sh -h
 ```
 
-【安装前务必运行一次】尝试运行命令但不安装，并显示详细信息
+【**安装前务必运行一次**】尝试运行命令但不安装/卸载，并显示详细信息
 
 ```shell
-./dotlink.sh -sv
+./link.sh -sv
+./unlink.sh -sv
 ```
 
 安装配置
 
 ```shell
-./dotlink.sh
+./link.sh
 ```
 
 删除配置
 
 ```shell
-./dotclear.sh
+./unlink.sh
 ```
 
 安装配置后请重启终端，部分报错属于正常现象，配置完成后不会出现报错。
@@ -173,13 +175,13 @@ autoProxy=true
 
 无自定义安装需求的话可以跳过
 
-### 关于 dotlink.sh
+### 关于 link.sh
 
-输入命令`./dotlink.sh -h`查看帮助
+输入命令`./link.sh -h`查看帮助
 
 ### 忽视部分配置
 
-你可以在`.dotfiles`文件夹下创建`dotignore`文件，并在其中声明了当前文件夹下你所不需要的配置，如以下示例代码
+你可以在`.dotfiles`文件夹下创建`.linkignore`文件，并在其中声明了当前文件夹下你所不需要的配置文件夹名，如以下示例代码
 
 ```
 cd ~/.dotfiles
@@ -199,9 +201,9 @@ echo "README.md" >> .stow-local-ignore
 
 ### 特殊链接目录
 
-`~/.dotfiles/dotlink.sh` 的策略是将 stow package 直接链接到 $HOME 目录下，如果有特殊目录需求，可以参考 nvim 目录的配置。
+`~/.dotfiles/link.sh` 的策略是将 stow package 直接链接到 $HOME 目录下。
 
-在 stow package 中创建 dotlink.sh 文件。因为目前只是自用的，所以没搞得很简单易用，好在代码很短，你可以试着 RTFSC
+如果有特殊目录需求（如，安装路径不是`~`，而是`~/.config`），可以参考 nvim 目录的配置。
 
 ## 其他软件
 
