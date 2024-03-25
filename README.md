@@ -185,8 +185,8 @@ autoProxy=true
 
 ```
 cd ~/.dotfiles
-touch dotignore
-echo "vim" >> dotignore
+touch .linkignore
+echo "vim" >> .linkignore
 ```
 
 同时，你也可以在 stow package （即`.dotfiles`下的子文件夹）中声明你不需要的配置。和上面不同的是，你需要使用 stow 的`.stow-local-ignore`文件，如以下示例代码
