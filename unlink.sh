@@ -4,7 +4,7 @@ source utils.sh
 
 pushd $DOTFILES
 for folder in *; do
-	if [ -d "$folder" ] && check_ignore $folder $IGNOREFILES; then
+	if [ -d "$folder" ] && check_ignore $folder; then
 		echo "link removed --- $folder"
 
     if [ -f "$folder/$UNLINK_FILE" ]; then

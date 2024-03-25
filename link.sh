@@ -9,7 +9,7 @@ source utils.sh
 
 pushd $DOTFILES
 for folder in *; do
-  if [ -d "$folder" ] && check_ignore $folder $IGNORE_FILE; then
+  if [ -d "$folder" ] && check_ignore $folder; then
 		echo "link start --- $folder"
     
     if [ -f "$folder/$LINK_FILE" ]; then

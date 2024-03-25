@@ -14,7 +14,7 @@ popd () {
 }
 
 check_ignore() {
-  if [ ! -f $2 ]; then
+  if [ ! -f $IGNORE_FILE ]; then
     return 0
   fi
 
@@ -22,7 +22,7 @@ check_ignore() {
     if [ $1 == $line ]; then
       return 1
     fi
-  done < $2
+  done < $IGNORE_FILE
 
   return 0
 }
