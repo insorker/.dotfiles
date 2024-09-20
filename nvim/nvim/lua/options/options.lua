@@ -1,4 +1,4 @@
-return {
+local options = {
 	global_options = {
 		termguicolors = true,
 
@@ -7,10 +7,7 @@ return {
 
     -- 行号
     number          = true,
-    relativenumber  = true,
-
-    -- 复制
-    clipboard = 'unnamedplus',
+    relativenumber  = false,
 
     -- 退格
     backspace = 'indent,eol,start',
@@ -38,7 +35,7 @@ return {
     -- 补全
     completeopt = 'menuone,preview,noinsert',
     wildmenu = true,
-    
+
     -- scroll
     sidescrolloff = 5,
     scrolloff = 5,
@@ -61,7 +58,7 @@ return {
 
     -- history
     history = 1000,
-    
+
     -- tab
 		shiftwidth  = 2,
 		tabstop     = 2,
@@ -69,3 +66,5 @@ return {
 		expandtab   = true,
 	},
 }
+
+return options

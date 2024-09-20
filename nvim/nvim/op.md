@@ -1,6 +1,6 @@
 # 关于 nvim 的操作
 
-> telescope
+## telescope
 
 <leader>ff      : 打开 telescope 寻找文件 (默认打开当前文件夹)
 <Esc><Esc>      : 退出
@@ -8,7 +8,7 @@
 <leader>fg      : 打开 telescope 寻找文件（正则模式）
 <leader>fd      : 打开 telescope 寻找文件（只包括 buffer 中的文件）
 
-> nvim-tree
+## nvim-tree
 
 <leader>t       : 打开 nvim-tree
 <C-]>           : 进入文件夹

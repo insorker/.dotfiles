@@ -1,11 +1,8 @@
--- setup
+-- setup options
 local options = require('options.options')
 
-function set_options()
-	for opt, val in pairs(options.global_options) do
-		vim.o[opt] = val
-	end
+for opt, val in pairs(options.global_options) do
+  vim.o[opt] = val
 end
 
--- enable
-set_options()
+vim.opt.clipboard:append('unnamedplus')
