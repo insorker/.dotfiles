@@ -66,11 +66,15 @@ Y               : 复制文件路径
 <zc>            : 折行
 <zo>            : 展开折行
 
-## telescope
+## telescope 查找文件
 
 <leader>ff      : 打开 telescope 寻找文件 (默认打开当前文件夹)
+<leader>fo      : 打开 telescope 需按文件（最近打开的文件）
 <Esc><Esc>      : 退出
 <leader>fd      : 打开 telescope 寻找文件（包括隐藏文件）
 <leader>fg      : 打开 telescope 寻找文件（正则模式）
 <leader>fd      : 打开 telescope 寻找文件（只包括 buffer 中的文件）
 
+## trouble 显示
+
+<leader>x       : 显示 diagnosis
