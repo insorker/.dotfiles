@@ -29,7 +29,7 @@ sudo update-alternatives --install /usr/bin/nvim nvim "${CUSTOM_NVIM_PATH}" 110
 
 ## Usage
 
-这里给出我常用的一些快捷键（TODO）
+进入 nvim 使用快捷键 `<leader>h`，或查看文件 "~/.config/nvim/help.md"。
 
 ## Software to Install
 
@@ -37,15 +37,7 @@ sudo update-alternatives --install /usr/bin/nvim nvim "${CUSTOM_NVIM_PATH}" 110
 
 ## Plugin
 
-请阅读以下内容，注释部分可能需要手动操作（不一定能及时更新）
-
-### 插件管理器
-
-[folke/lazy.nvim](https://github.com/folke/lazy.nvim)
-
-### 主题
-
-[sainnhe/sonokai](https://github.com/sainnhe/sonokai)
+请阅读 "nvim/lua/plugins/" 下的内容，部分可能需要手动操作
 
 ### 代码高亮
 
@@ -72,15 +64,15 @@ from the grammar definitions to be compatible with nvim!
 
 ### LSP 补全
 
+#### lspconfig
+
+[neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
+
 #### 自动 server 安装
 
 [williamboman/mason.nvim](https://github.com/williamboman/mason.nvim)
 
 [williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
-
-#### lspconfig
-
-[neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 
 #### 自动补全
 
@@ -92,10 +84,6 @@ from the grammar definitions to be compatible with nvim!
 
 [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
 
-#### 补全的同时显示文档
-
-[folke/neodev.nvim](https://github.com/folke/neodev.nvim)
-
 ### buffer line
 
 [akinsho/bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
@@ -106,10 +94,6 @@ from the grammar definitions to be compatible with nvim!
 
 [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
 
-### 展示 symbols
-
-[simrat39/symbols-outline.nvim](https://github.com/simrat39/symbols-outline.nvim)
-
 ### file searcher
 
 [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
@@ -117,10 +101,6 @@ from the grammar definitions to be compatible with nvim!
 ### 浮动终端
 
 [akinsho/toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
-
-### 加速插件下载
-
-[lewis6991/impatient.nvim](https://github.com/lewis6991/impatient.nvim)
 
 ### dashboard
 
@@ -134,6 +114,10 @@ from the grammar definitions to be compatible with nvim!
 
 [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
 
-### format
+### 已经不再更新的插件
+
+[folke/neodev.nvim](https://github.com/folke/neodev.nvim)
+
+[simrat39/symbols-outline.nvim](https://github.com/simrat39/symbols-outline.nvim)
 
 [jose-elias-alvarez/null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim)

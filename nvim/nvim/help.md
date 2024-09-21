@@ -29,6 +29,10 @@
 <C-_>           : 单行注释
 <leader>bc      : 多行注释
 
+## LSP
+
+<Space>k        : 显示 lsp 信息
+
 ## nvim-tree 侧边栏
 
 <leader>e       : 打开 nvim-tree

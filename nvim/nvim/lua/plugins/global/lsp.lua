@@ -21,22 +21,15 @@ return {
     "neovim/nvim-lspconfig",    -- Collection of configurations for built-in LSP client
     dependencies = {
       -- automatic server installation
-      {
-        "williamboman/mason.nvim",
-        build = ":MasonUpdate",
-      },
+      "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
 
       -- autocompletion
       "hrsh7th/nvim-cmp",         -- Autocompletion plugin
       "hrsh7th/cmp-nvim-lsp",     -- LSP source for nvim-cmp
-
-      -- For luasnip users.
       "saadparwaiz1/cmp_luasnip", -- Snippets source for nvim-cmp
       "L3MON4D3/LuaSnip",         -- Snippets plugin
-
-      -- help, docs, and completion
-      { "folke/neodev.nvim", opts = {} }
+      "hrsh7th/cmp-nvim-lsp-signature-help", -- function hint
     },
     config = function()
       require("mason").setup()
@@ -44,34 +37,27 @@ return {
         ensure_installed = servers_default,
       }
 
-      require("neodev").setup({})
-
-      -- Add additional capabilities supported by nvim-cmp
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-      local lspconfig = require('lspconfig')
-
       -- more information :h mason-lspconfig-automatic-server-setup
       require("mason-lspconfig").setup_handlers {
         -- The first entry (without a key) will be the default handler
         -- and will be called for each installed server that doesn't have
         -- a dedicated handler.
         function (server_name) -- default handler (optional)
+          local lspconfig = require('lspconfig')
+          -- Add additional capabilities supported by nvim-cmp
+          local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
           lspconfig[server_name].setup {
             -- on_attach = my_custom_on_attach,
             capabilities = capabilities,
           }
         end,
-        -- Next, you can provide a dedicated handler for specific servers.
-        -- For example, a handler override for the `rust_analyzer`:
-        -- ["rust_analyzer"] = function ()
-        --     require("rust-tools").setup {}
-        -- end
       }
+
+      -- more information: https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion#nvim-cmp
 
       -- luasnip setup
       local luasnip = require('luasnip')
-
       -- nvim-cmp setup
       local cmp = require('cmp')
 
@@ -113,8 +99,14 @@ return {
           { name = 'luasnip' },
         }, {
           { name = 'buffer' },
+        }, {
+          { name = 'nvim_lsp_signature_help' },
         })
       }
+
+      -- https://www.reddit.com/r/neovim/comments/114tc35/beginner_trigger_suggestions_in_neovim/
+      -- vim.keymap.set('n', '<Space>k', vim.diagnostic.open_float)
+      vim.keymap.set('n', '<Space>k', vim.lsp.buf.hover)
     end
   }
 }
