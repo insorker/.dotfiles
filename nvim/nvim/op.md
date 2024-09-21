@@ -1,4 +1,13 @@
-# 关于 nvim 的操作
+# nvim 使用手册
+
+## 常用命令
+
+TODO
+
+## Comment
+
+<C-_>           : 单行注释
+<leader>bc      : 多行注释
 
 ## telescope
 

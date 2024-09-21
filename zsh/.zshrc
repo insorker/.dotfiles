@@ -94,6 +94,9 @@ if [ -f $HOME/.zshrc_profile ]; then
 	source $HOME/.zshrc_profile
 fi
 
+# go
+export PATH=$PATH:/usr/local/go/bin
+
 # WSL ONLY
 # open windows folder, like: 'open .'
 alias open=/mnt/c/Windows/explorer.exe

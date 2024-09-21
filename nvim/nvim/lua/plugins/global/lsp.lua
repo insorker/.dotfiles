@@ -1,6 +1,19 @@
--- more servers https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
+-- more servers: https://github.com/williamboman/mason-lspconfig.nvim?tab=readme-ov-file#available-lsp-servers
 local servers_default = {
-  "lua_ls", "bashls", "clangd", "dockerls", "jsonls", "marksman", "pyright", "rust_analyzer"
+  -- script
+  "lua_ls", "bashls", "jsonls",
+  -- note
+  "marksman",
+  -- c, c++
+  "clangd", "cmake",
+  -- python
+  "pyright",
+  -- docker
+  "dockerls",
+  -- rust
+  "rust_analyzer",
+  -- go
+  "gopls",
 }
 
 return {
@@ -57,10 +70,11 @@ return {
       }
 
       -- luasnip setup
-      local luasnip = require 'luasnip'
+      local luasnip = require('luasnip')
 
       -- nvim-cmp setup
-      local cmp = require 'cmp'
+      local cmp = require('cmp')
+
       cmp.setup {
         snippet = {
           expand = function(args)
@@ -70,7 +84,6 @@ return {
         mapping = cmp.mapping.preset.insert({
           ['<C-u>'] = cmp.mapping.scroll_docs(-4), -- Up
           ['<C-d>'] = cmp.mapping.scroll_docs(4), -- Down
-          -- C-b (back) C-f (forward) for snippet placeholder navigation.
           ['<C-Space>'] = cmp.mapping.complete(),
           ['<CR>'] = cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Replace,
@@ -95,10 +108,12 @@ return {
             end
           end, { 'i', 's' }),
         }),
-        sources = {
+        sources = cmp.config.sources({
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
-        },
+        }, {
+          { name = 'buffer' },
+        })
       }
     end
   }

@@ -43,6 +43,6 @@ return {
       end
     })
 
-    vim.api.nvim_set_keymap('n', '<leader>t', '<Cmd>NvimTreeToggle<CR>', {noremap = true})
+    vim.api.nvim_set_keymap('n', '<leader>e', '<Cmd>NvimTreeToggle<CR>', {noremap = true})
   end,
 }

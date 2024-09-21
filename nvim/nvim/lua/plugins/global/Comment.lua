@@ -2,18 +2,19 @@ return {
   event = "VeryLazy",
   'numToStr/Comment.nvim',
   keys = {
-    "<leader>cc", "<leader>bc",
-    { "<leader>cc", mode = "v" },
-    { "<leader>bc", mode = "v" },
+    "<C-_>", { "<C-_>", mode = "v" },
+    "<leader>bc", { "<leader>bc", mode = "v" },
   },
   config = function()
     require('Comment').setup{
+      ignore = '^$',
       toggler = {
-        line = '<leader>cc',
+        line = '<C-_>',
         block = '<leader>bc',
       },
+      -- necessary in v-mode
       opleader = {
-        line = '<leader>cc',
+        line = '<C-_>',
         block = '<leader>bc',
       }
     }
