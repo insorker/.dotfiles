@@ -5,6 +5,9 @@ local options = {
     -- 关闭swap文件
     swapfile = false,
 
+    -- 复制
+    clipboard = 'unnamedplus',
+
     -- 行号
     number          = true,
     relativenumber  = false,
