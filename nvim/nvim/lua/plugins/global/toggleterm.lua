@@ -1,6 +1,5 @@
 return {
-  "akinsho/toggleterm.nvim",
-  version = '*',
+  "akinsho/toggleterm.nvim", version = '*',
   keys = {
     { '<C-\\>' }, { '<leader>g' }
   },
@@ -10,7 +9,7 @@ return {
       direction = 'float',
     }
 
-    vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", {noremap = true, silent = true})
+    vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true })
 
     -- lazygit
     local Terminal  = require('toggleterm.terminal').Terminal
@@ -20,6 +19,6 @@ return {
       lazygit:toggle()
     end
 
-    vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
+    vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
   end
 }

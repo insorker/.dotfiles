@@ -1,15 +1,3 @@
---[[
-# 使用
-## 选中区域
-[Enter]: 选择
-[Backspace]: 取消选择
-## 格式化代码
-[=]
-## 折行
-[zc]: 折叠
-[zo]: 取消折叠
---]]
-
 return {
   'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate',

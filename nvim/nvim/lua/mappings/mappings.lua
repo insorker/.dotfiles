@@ -33,7 +33,6 @@ local mappings = {
   ['n <leader><tab> <C-6>'] = {},
   ['n <leader>p <Cmd>bp<CR>'] = {},
   ['n <leader>n <Cmd>bn<CR>'] = {},
-  ['n <leader>d <Cmd>bd<CR>'] = {},
 
   -- switch tab
   ['n <leader>tp gt'] = {},

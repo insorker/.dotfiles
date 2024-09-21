@@ -1,5 +1,6 @@
 return {
-  'nvim-telescope/telescope.nvim',
+  'nvim-telescope/telescope.nvim', branch = '0.1.x',
+  dependencies = { 'nvim-lua/plenary.nvim' },
   cmd = "Telescope",
   keys = {
     { '<leader>ff', '<Cmd>Telescope find_files<Cr>',              mode = 'n', desc = 'find files except hidden files' },
@@ -9,6 +10,4 @@ return {
     { '<leader>fo', '<Cmd>Telescope oldfiles<Cr>',                mode = 'n', desc = 'find old files' },
     { '<leader>fh', '<Cmd>Telescope help_tags<Cr>',               mode = 'n', desc = 'find help manuals' },
   },
-  dependencies = { 'nvim-lua/plenary.nvim' },
-  version = '0.1.1',
 }
