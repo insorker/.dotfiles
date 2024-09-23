@@ -12,8 +12,6 @@ local servers_default = {
   "dockerls",
   -- rust
   "rust_analyzer",
-  -- go
-  -- "gopls",
 }
 
 return {

@@ -10,21 +10,13 @@ sudo add-apt-repository universe
 sudo apt install libfuse2
 ```
 
-安装 [nvim](https://github.com/neovim/neovim/wiki/Installing-Neovim#appimage-universal-linux-package)
-
+安装 [nvim](https://github.com/neovim/neovim/blob/master/INSTALL.md)
 
 ```
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 chmod a+x nvim.appimage
 ./nvim.appimage
-sudo cp ./nvim.appimage /usr/local/bin
-```
-
-创建链接
-
-```
-export CUSTOM_NVIM_PATH=/usr/local/bin/nvim.appimage
-sudo update-alternatives --install /usr/bin/nvim nvim "${CUSTOM_NVIM_PATH}" 110
+sudo mv ./nvim.appimage /usr/local/bin/nvim
 ```
 
 ## Usage
