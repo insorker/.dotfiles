@@ -13,7 +13,7 @@ local servers_default = {
   -- rust
   "rust_analyzer",
   -- go
-  "gopls",
+  -- "gopls",
 }
 
 return {

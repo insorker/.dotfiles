@@ -1,3 +1,5 @@
+# ==============================> Powerlevel10k configurations
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -38,41 +40,50 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
-# ==> 启用插件
+
+# ==============================> Zsh plugins
+
 source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 source ~/.zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.zsh/.p10k.zsh ]] || source ~/.zsh/.p10k.zsh
-source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# <== 启用插件
 
-# ==> 一些从bashrc抄过来的操作
+source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+
+# ==============================> Zsh configurations
+
+# Enable color prompt
+autoload -U colors && colors
+
+# Key bindings for accepting autosuggestion
+bindkey '^t' autosuggest-accept
+
+
+# ==============================> Bash compatibility commands
+
 alias ll='ls -alF'
+
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
-# <== 一些从bashrc抄过来的操作
 
-# set PATH so it includes user's private bin if it exists
+
+# ==============================> Path settings
+
 if [ -d "$HOME/.local/bin" ]; then
   PATH="$HOME/.local/bin:$PATH"
 fi
 
-# 启用色彩提示符
-autoload -U colors && colors
 
-# 接受当前提示 
-bindkey '^t' autosuggest-accept
+# ==============================> Additional software configurations
 
-# ==> Software
 # ccache
 export PATH=/usr/lib/ccache:$PATH
 
@@ -87,17 +98,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# <== Software
 
-# import .zsh_profile
+# ==============================> Import external zsh profile
 if [ -f $HOME/.zshrc_profile ]; then
 	source $HOME/.zshrc_profile
 fi
-
-# go
-export PATH=$PATH:/usr/local/go/bin
-
-# WSL ONLY
-# open windows folder, like: 'open .'
-alias open=/mnt/c/Windows/explorer.exe
-alias code="/mnt/c/Users/26773/AppData/Local/Programs/Microsoft\ VS\ Code/bin/code"

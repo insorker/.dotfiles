@@ -24,16 +24,19 @@
 
 ### 换源
 
-这里使用[清华源 Ubuntu](https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/)
-
 ```shell
+# 备份
 sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+# 进入 vim 编辑
 sudo vi /etc/apt/sources.list
-# 进入 vim
+# vim 命令，全选删除插入
 ggVGdi
-粘贴对应镜像源
-<Esc>:wq!
+
+粘贴对应镜像源，如[清华源 Ubuntu](https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/) 
+
 # 离开 vim
+<Esc>:wq!
+# 更新
 sudo apt update
 sudo apt upgrade
 ```
@@ -58,7 +61,7 @@ sudo apt install zsh
 chsh -s /bin/zsh
 ```
 
-重启后可以看到 zsh 默认配置选项，选择 `q` 退出
+重启后可以看到 zsh 默认配置选项，选择 `q` 退出。
 
 ## 基础配置
 
@@ -76,7 +79,7 @@ cd ~ && git clone --depth=1 git@github.com:insorker/.dotfiles.git && cd .dotfile
 
 ### 运行脚本安装配置
 
-> 如果你不是新系统，注意！！！请确保家目录下不存在.dotfile中同名文件/文件夹/链接。如有冲突，请手动调整
+> 注意！！！ 如果你不是新系统，请确保家目录下不存在.dotfile中同名文件/文件夹/链接。如有冲突，请手动调整
 >
 > e.g.
 > 
@@ -112,11 +115,24 @@ cd ~ && git clone --depth=1 git@github.com:insorker/.dotfiles.git && cd .dotfile
 ./unlink.sh
 ```
 
-安装配置后请重启终端，部分报错属于正常现象，配置完成后不会出现报错。
+安装配置后请重启终端，部分报错属于正常现象，完成所有配置后不会出现报错。
 
 **后续配置请查阅各个文件夹下的 README.md**
 
-## WSL 配置
+## WSL 配置（可选）
+
+### 配置 open 与 code 命令
+
+新建 `~/.zshrc_profile` 文件，添加如下内容并保存。
+
+```shell
+# open windows folder
+alias open=/mnt/c/Windows/explorer.exe
+# code with vscode
+alias code="/mnt/c/Users/26773/AppData/Local/Programs/Microsoft\ VS\ Code/bin/code"
+```
+
+code 的路径是 windows 系统中 vscode 的安装路径，请按需修改。
 
 ### 基本使用
 
@@ -137,8 +153,6 @@ cd ~ && git clone --depth=1 git@github.com:insorker/.dotfiles.git && cd .dotfile
 #### 其他
 
 将 settings.json 中的 copyOnSelect 改为 true
-
-修改复制粘贴命令
 
 ### proxy
 
@@ -171,9 +185,9 @@ autoProxy=true
 
 当然这样就不能使用一些 windows 中的命令了，需要自行配置（已配置部分，如 code）。如果不介意卡顿的话，可以跳过这步。
 
-## 进阶配置
+## 进阶配置（可选）
 
-无自定义安装需求的话可以跳过
+无自定义安装需求的话可以跳过。
 
 ### 关于 link.sh
 
@@ -189,7 +203,7 @@ touch .linkignore
 echo "vim" >> .linkignore
 ```
 
-同时，你也可以在 stow package （即`.dotfiles`下的子文件夹）中声明你不需要的配置。和上面不同的是，你需要使用 stow 的`.stow-local-ignore`文件，如以下示例代码
+同时，你也可以在 `stow package` （即`.dotfiles`下的子文件夹）中声明你不需要的配置。和上面不同的是，你需要使用 stow 的 `.stow-local-ignore` 文件，如以下示例代码
 
 ```
 cd ~/.dotfiles/nvim
@@ -197,7 +211,7 @@ touch .stow-local-ignore
 echo "README.md" >> .stow-local-ignore
 ```
 
-> 在没有 .stow-local-ignore 的情况下，stow 会默认忽略一些文件如 README.md。新建 .stow-local-ignore 后，请按照需求将它们添加进配置中
+> 在没有 `.stow-local-ignore` 的情况下，stow 会默认忽略一些文件如 README.md。新建 `.stow-local-ignore` 后，请按照需求将它们添加进配置中。
 
 ### 特殊链接目录
 
