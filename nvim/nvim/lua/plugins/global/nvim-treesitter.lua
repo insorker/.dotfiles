@@ -13,13 +13,10 @@ return {
         -- must always be installed
         'c', 'lua', 'vim', 'vimdoc', 'query', 'markdown', 'markdown_inline',
         'dockerfile', 'json', 'yaml',
-        'latex',
         'cpp', 'cmake', 'make',
         'go',
-        'haskell',
         'python',
-        'rust',
-        'sql'
+        'rust'
       },
 
       -- Automatically install missing parsers when entering buffer
