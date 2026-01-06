@@ -1,3 +1,6 @@
+（已废弃，详见：https://zhuanlan.zhihu.com/p/15862658219）
+
+
 # nvim 使用手册
 
 ## 常用命令

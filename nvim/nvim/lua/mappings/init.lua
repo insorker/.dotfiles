@@ -1,5 +1,5 @@
 -- leader
-vim.g.mapleader = ','
+vim.g.mapleader = ' '
 
 -- setup mappings
 local mapper = require('mappings.mapper')
